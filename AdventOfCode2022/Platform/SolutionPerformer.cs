@@ -7,12 +7,6 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2022
 {
-    public interface ISolutionPerformerPlatform
-    {
-        void Log(string message);
-    }
-
-
     public interface ISolutionPerformer
     {
         public abstract Puzzle Puzzle { get; }
@@ -24,11 +18,11 @@ namespace AdventOfCode2022
         where TPuzzle : Puzzle
         where TPuzzleSolution : PuzzleSolution
     {
-        private readonly ISolutionPerformerPlatform _platform;
+        private readonly ILogger _logger;
 
-        public SolutionPerformer(ISolutionPerformerPlatform platform)
+        public SolutionPerformer(ILogger logger)
         {
-            _platform = platform;
+            _logger = logger;
 
             Puzzle = Activator.CreateInstance(typeof(TPuzzle)) as Puzzle;
             Solution = Activator.CreateInstance(typeof(TPuzzleSolution)) as PuzzleSolution;
@@ -61,9 +55,14 @@ namespace AdventOfCode2022
 
         public string SolutionName { get; private set; }
         public string LogPrefix { get; private set; }
-        public void LogStartLine(string action) => _platform?.Log($"--- Day{DayNumber:d2}: {Title} - {SolutionName} ({action}) ---");
-        public void Log(string message) => _platform?.Log($" {message}");
-        public void LogEndLine() => _platform?.Log($" ");
+
+
+        public void LogInfo(string message) => _logger?.Info($"{message}");
+        public void LogNotice(string message) => _logger?.Notice($"{message}");
+        public void LogWarning(string message) => _logger?.Warning($"{message}");
+        public void LogError(string message) => _logger?.Error($"{message}");
+        public void LogStartLine(string action) => LogInfo($"--- Day{DayNumber:d2}: {Title} - {SolutionName} ({action}) ---");
+        public void LogEndLine() => LogInfo($" ");
 
         public void SampleTest()
         {
@@ -74,16 +73,16 @@ namespace AdventOfCode2022
 
                 if (answer == PartOneSampleAnswer)
                 {
-                    Log($"✔ Test part one passed by sample input ({answer})");
+                    LogNotice($"✔ Test part one passed by sample input ({answer})");
                 }
                 else
                 {
-                    Log($"✘ Test part one failed by sample input! ({answer} != {PartOneSampleAnswer})");
+                    LogWarning($"✘ Test part one failed by sample input! ({answer} != {PartOneSampleAnswer})");
                 }
             }
             catch (Exception ex)
             {
-                Log($"❎ An exception occurred while testing part one by sample input! {Environment.NewLine}{ex.Message}");
+                LogError($"❎ An exception occurred while testing part one by sample input! {Environment.NewLine}  {ex.Message}");
             }
 
             try
@@ -92,16 +91,16 @@ namespace AdventOfCode2022
 
                 if (answer == PartTwoSampleAnswer)
                 {
-                    Log($"✔ Test part two passed by sample input ({answer})");
+                    LogNotice($"✔ Test part two passed by sample input ({answer})");
                 }
                 else
                 {
-                    Log($"✘ Test part two failed by sample input! ({answer} != {PartTwoSampleAnswer})");
+                    LogWarning($"✘ Test part two failed by sample input! ({answer} != {PartTwoSampleAnswer})");
                 }
             }
             catch (Exception ex)
             {
-                Log($"❎ An exception occurred while testing part two by sample input! {Environment.NewLine}{ex.Message}");
+                LogError($"❎ An exception occurred while testing part two by sample input! {Environment.NewLine}  {ex.Message}");
             }
             LogEndLine();
         }
@@ -115,16 +114,16 @@ namespace AdventOfCode2022
 
                 if (answer == PartOneActualAnswer)
                 {
-                    Log($"✔ Test part one passed by actual input ({answer})");
+                    LogNotice($"✔ Test part one passed by actual input ({answer})");
                 }
                 else
                 {
-                    Log($"✘ Test part one failed by actual input! ({answer} != {PartOneActualAnswer})");
+                    LogWarning($"✘ Test part one failed by actual input! ({answer} != {PartOneActualAnswer})");
                 }
             }
             catch (Exception ex)
             {
-                Log($"❎ An exception occurred while testing part one by actual input! {Environment.NewLine}{ex.Message}");
+                LogError($"❎ An exception occurred while testing part one by actual input! {Environment.NewLine}  {ex.Message}");
             }
 
             try
@@ -133,16 +132,16 @@ namespace AdventOfCode2022
 
                 if (answer == PartTwoActualAnswer)
                 {
-                    Log($"✔ Test part two passed by actual input ({answer})");
+                    LogNotice($"✔ Test part two passed by actual input ({answer})");
                 }
                 else
                 {
-                    Log($"✘ Test part two failed by actual input! ({answer} != {PartTwoActualAnswer})");
+                    LogWarning($"✘ Test part two failed by actual input! ({answer} != {PartTwoActualAnswer})");
                 }
             }
             catch (Exception ex)
             {
-                Log($"❎ An exception occurred while testing part two by actual input! {Environment.NewLine}{ex.Message}");
+                LogError($"❎ An exception occurred while testing part two by actual input! {Environment.NewLine}  {ex.Message}");
             }
             LogEndLine();
         }
@@ -154,11 +153,11 @@ namespace AdventOfCode2022
             try
             {
                 partOneAnswer = Solution.SolvePartOne(ActualInput);
-                Log($"✔ Part one answer by actual input: {partOneAnswer}.");
+                LogNotice($"✔ Part one answer by actual input: {partOneAnswer}.");
             }
             catch (Exception ex)
             {
-                Log($"❎ An exception occurred while solving part one: {ex.Message}");
+                LogError($"❎ An exception occurred while solving part one:{Environment.NewLine}  {ex.Message}");
                 return string.Empty;
             }
 
@@ -166,11 +165,11 @@ namespace AdventOfCode2022
             try
             {
                 partTwoAnswer = Solution.SolvePartTwo(ActualInput);
-                Log($"✔ Part two answer by actual input: {partTwoAnswer}.");
+                LogNotice($"✔ Part two answer by actual input: {partTwoAnswer}.");
             }
             catch (Exception ex)
             {
-                Log($"❎ An exception occurred while solving part two: {ex.Message}");
+                LogError($"❎ An exception occurred while solving part two:{Environment.NewLine}  {ex.Message}");
                 return string.Empty;
             }
 
@@ -179,8 +178,8 @@ namespace AdventOfCode2022
         }
 
 
-        public void LogPartOne(string message) => _platform?.Log($"{LogPrefix} Part1> {message}");
-        public void LogPartTwo(string message) => _platform?.Log($"{LogPrefix} Part2> {message}");
+        public void LogPartOne(string message) => LogInfo($"{LogPrefix} Part1> {message}");
+        public void LogPartTwo(string message) => LogInfo($"{LogPrefix} Part2> {message}");
 
         public void TestPartOne() => Test(LogPartOne, Solution.SolvePartOne, SampleInput, PartOneSampleAnswer);
         public void TestPartTwo() => Test(LogPartTwo, Solution.SolvePartTwo, SampleInput, PartTwoSampleAnswer);

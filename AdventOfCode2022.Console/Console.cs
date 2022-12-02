@@ -1,6 +1,7 @@
 ﻿using AdventOfCode2022.Puzzles;
 using AdventOfCode2022.Solutions;
 using System;
+using System.Drawing;
 
 namespace AdventOfCode2022;
 
@@ -17,7 +18,7 @@ internal class Program
 
         ConsoleSolutionPerformer.Perform<Day02Puzzle, Day02FirstTrySolution>();
 
-        //ConsoleSolutionPerformer.Perform<Day03Puzzle, Day03FirstTrySolution>();
+        ConsoleSolutionPerformer.Perform<Day03Puzzle, Day03FirstTrySolution>();
 
         //ConsoleSolutionPerformer.Perform<Day04Puzzle, Day04FirstTrySolution>();
 
@@ -39,10 +40,9 @@ internal class Program
     }
 
 
-    public class ConsoleSolutionPerformer : ISolutionPerformerPlatform
+    public class ConsoleSolutionPerformer : ILogger
     {
         static readonly ConsoleSolutionPerformer _instance = new();
-        public void Log(string message) => Console.WriteLine(message);
 
         public static void Perform<TPuzzle, TPuzzleSolution>()
             where TPuzzle : Puzzle
@@ -61,5 +61,21 @@ internal class Program
 
             performer.Solve();
         }
+
+        public void Log(string message, ConsoleColor foregroundColor)
+        {
+            var preForegroundColor = Console.ForegroundColor;
+            Console.ForegroundColor = foregroundColor;
+            Console.WriteLine(message);
+            Console.ForegroundColor = preForegroundColor;
+        }
+        void ILogger.Emergency(string message)=> Log(message, ConsoleColor.DarkMagenta);
+        void ILogger.Alert(string message) => Log(message, ConsoleColor.Magenta);
+        void ILogger.Critical(string message) => Log(message, ConsoleColor.DarkRed);
+        void ILogger.Error(string message) => Log(message, ConsoleColor.Red);
+        void ILogger.Warning(string message) => Log(message, ConsoleColor.Yellow);
+        void ILogger.Notice(string message) => Log(message, ConsoleColor.Green);
+        void ILogger.Info(string message) => Log(message, ConsoleColor.Cyan);
+        void ILogger.Debug(string message) => Log(message, ConsoleColor.Gray);
     }
 }
