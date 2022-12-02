@@ -10,12 +10,12 @@ public class Day02Puzzle : Puzzle
 {
     public override int DayNumber => 02;
     public override string[] SampleInput =>
-        ""
+        "A Y\r\nB X\r\nC Z"
         .ToLines();
 
-    public override string PartOneSampleAnswer => "?";
-    public override string PartTwoSampleAnswer => "?";
+    public override string PartOneSampleAnswer => "15";
+    public override string PartTwoSampleAnswer => "12";
 
-    public override string PartOneActualAnswer => "?";
-    public override string PartTwoActualAnswer => "?";
+    public override string PartOneActualAnswer => "13809";
+    public override string PartTwoActualAnswer => "12316";
 }

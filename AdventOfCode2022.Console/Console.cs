@@ -12,10 +12,10 @@ internal class Program
         Console.ForegroundColor = ConsoleColor.Green;
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-        ConsoleSolutionPerformer.Perform<Day01Puzzle, Day01FirstTrySolution>();
-        ConsoleSolutionPerformer.Perform<Day01Puzzle, Day01SecondTrySolution>();
+        //ConsoleSolutionPerformer.Perform<Day01Puzzle, Day01FirstTrySolution>();
+        //ConsoleSolutionPerformer.Perform<Day01Puzzle, Day01SecondTrySolution>();
 
-        //ConsoleSolutionPerformer.Perform<Day02Puzzle, Day02FirstTrySolution>();
+        ConsoleSolutionPerformer.Perform<Day02Puzzle, Day02FirstTrySolution>();
 
         //ConsoleSolutionPerformer.Perform<Day03Puzzle, Day03FirstTrySolution>();
 
