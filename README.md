@@ -10,6 +10,9 @@ This repository is a platform for solving [Advent Of Code 2022](https://adventof
 2. *Console:* Simple console application for running tests and solutions.
 3. *Benchmark:* To benchmark several solutions (My favorite part :star_struck:).
 
+**First try**: I just make it ***Work***
+
+**Other tries**: I make ***Right*** and ***Fast***
 
 ## [Day 01](https://adventofcode.com/2022/day/1) (Benchmark of [2 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day01))
 
