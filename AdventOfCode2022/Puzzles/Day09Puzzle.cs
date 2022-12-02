@@ -9,6 +9,8 @@ namespace AdventOfCode2022.Puzzles;
 public class Day09Puzzle : Puzzle
 {
     public override int DayNumber => 09;
+    public override string Title => "";
+
     public override string[] SampleInput =>
         ""
         .ToLines();

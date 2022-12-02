@@ -24,7 +24,6 @@ namespace AdventOfCode2022
         where TPuzzle : Puzzle
         where TPuzzleSolution : PuzzleSolution
     {
-        public static readonly string SeperateLine = $"-----------------------------------------";
         private readonly ISolutionPerformerPlatform _platform;
 
         public SolutionPerformer(ISolutionPerformerPlatform platform)
@@ -41,17 +40,18 @@ namespace AdventOfCode2022
 
             ActualInput = File.ReadAllLines(@$"ActualInputs\Day{DayNumber:d2}.txt");
 
-            var solutionName = Solution.GetType().Name
-                                       .Replace($"Day{DayNumber:d2}", "")
-                                       .Replace($"Solution", "");
+            SolutionName = Solution.GetType().Name
+                                   .Replace($"Day{DayNumber:d2}", "")
+                                   .Replace($"Solution", "");
 
-            LogPrefix = $"Day{DayNumber:d2} {solutionName}";
+            LogPrefix = $"Day{DayNumber:d2} {SolutionName}";
         }
 
         public Puzzle Puzzle { get; private set; }
         public PuzzleSolution Solution { get; private set; }
 
         public int DayNumber => Puzzle.DayNumber;
+        public string Title => Puzzle.Title;
         public string[] SampleInput => Puzzle.SampleInput;
         public string PartOneSampleAnswer => Puzzle.PartOneSampleAnswer;
         public string PartTwoSampleAnswer => Puzzle.PartTwoSampleAnswer;
@@ -59,16 +59,15 @@ namespace AdventOfCode2022
         public string PartOneActualAnswer => Puzzle.PartOneActualAnswer;
         public string PartTwoActualAnswer => Puzzle.PartTwoActualAnswer;
 
+        public string SolutionName { get; private set; }
         public string LogPrefix { get; private set; }
-        public void LogSeperateLine() => _platform?.Log(SeperateLine);
-        public void Log(string message) => _platform?.Log($"{LogPrefix}> {message}");
-        public void LogPartOne(string message) => _platform?.Log($"{LogPrefix} Part1> {message}");
-        public void LogPartTwo(string message) => _platform?.Log($"{LogPrefix} Part2> {message}");
-
+        public void LogStartLine(string action) => _platform?.Log($"--- Day{DayNumber:d2}: {Title} - {SolutionName} ({action}) ---");
+        public void Log(string message) => _platform?.Log($" {message}");
+        public void LogEndLine() => _platform?.Log($" ");
 
         public void SampleTest()
         {
-            LogSeperateLine();
+            LogStartLine("Sample Test");
             try
             {
                 var answer = Solution.SolvePartOne(SampleInput).Trim();
@@ -104,11 +103,12 @@ namespace AdventOfCode2022
             {
                 Log($"❎ An exception occurred while testing part two by sample input! {Environment.NewLine}{ex.Message}");
             }
+            LogEndLine();
         }
 
         public void ActualTest()
         {
-            LogSeperateLine();
+            LogStartLine("Actual Test");
             try
             {
                 var answer = Solution.SolvePartOne(ActualInput).Trim();
@@ -144,7 +144,43 @@ namespace AdventOfCode2022
             {
                 Log($"❎ An exception occurred while testing part two by actual input! {Environment.NewLine}{ex.Message}");
             }
+            LogEndLine();
         }
+
+        public string Solve()
+        {
+            LogStartLine("Solve");
+            var partOneAnswer = default(string);
+            try
+            {
+                partOneAnswer = Solution.SolvePartOne(ActualInput);
+                Log($"✔ Part one answer by actual input: {partOneAnswer}.");
+            }
+            catch (Exception ex)
+            {
+                Log($"❎ An exception occurred while solving part one: {ex.Message}");
+                return string.Empty;
+            }
+
+            var partTwoAnswer = default(string);
+            try
+            {
+                partTwoAnswer = Solution.SolvePartTwo(ActualInput);
+                Log($"✔ Part two answer by actual input: {partTwoAnswer}.");
+            }
+            catch (Exception ex)
+            {
+                Log($"❎ An exception occurred while solving part two: {ex.Message}");
+                return string.Empty;
+            }
+
+            LogEndLine();
+            return $"Part one: {partOneAnswer}, Part two: {partTwoAnswer}";
+        }
+
+
+        public void LogPartOne(string message) => _platform?.Log($"{LogPrefix} Part1> {message}");
+        public void LogPartTwo(string message) => _platform?.Log($"{LogPrefix} Part2> {message}");
 
         public void TestPartOne() => Test(LogPartOne, Solution.SolvePartOne, SampleInput, PartOneSampleAnswer);
         public void TestPartTwo() => Test(LogPartTwo, Solution.SolvePartTwo, SampleInput, PartTwoSampleAnswer);
@@ -170,35 +206,6 @@ namespace AdventOfCode2022
             }
         }
 
-        public string Solve()
-        {
-            LogSeperateLine();
-            var partOneAnswer = default(string);
-            try
-            {
-                partOneAnswer = Solution.SolvePartOne(ActualInput);
-                Log($"✔ Part one answer by actual input: {partOneAnswer}.");
-            }
-            catch (Exception ex)
-            {
-                Log($"❎ An exception occurred while solving part one: {ex.Message}");
-                return string.Empty;
-            }
-
-            var partTwoAnswer = default(string);
-            try
-            {
-                partTwoAnswer = Solution.SolvePartTwo(ActualInput);
-                Log($"✔ Part two answer by actual input: {partTwoAnswer}.");
-            }
-            catch (Exception ex)
-            {
-                Log($"❎ An exception occurred while solving part two: {ex.Message}");
-                return string.Empty;
-            }
-
-            return $"Part one: {partOneAnswer}, Part two: {partTwoAnswer}";
-        }
         public string SolvePartOne() => Solve(LogPartOne, Solution.SolvePartOne, ActualInput);
         public string SolvePartTwo() => Solve(LogPartTwo, Solution.SolvePartTwo, ActualInput);
         public static string Solve(Action<string> logAction, Func<string[], string> solveMethod, string[] input)

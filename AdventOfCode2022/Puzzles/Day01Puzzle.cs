@@ -9,6 +9,8 @@ namespace AdventOfCode2022.Puzzles;
 public class Day01Puzzle : Puzzle
 {
     public override int DayNumber => 01;
+    public override string Title => "Calorie Counting";
+
     public override string[] SampleInput =>
         "1000\r\n2000\r\n3000\r\n\r\n4000\r\n\r\n5000\r\n6000\r\n\r\n7000\r\n8000\r\n9000\r\n\r\n10000"
         .ToLines();

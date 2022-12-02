@@ -9,6 +9,7 @@ namespace AdventOfCode2022
     public abstract class Puzzle
     {
         public abstract int DayNumber { get; }
+        public abstract string Title { get; }
 
         public abstract string[] SampleInput { get; }
         public abstract string PartOneSampleAnswer { get; }
