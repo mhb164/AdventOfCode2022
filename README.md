@@ -11,7 +11,7 @@ This repository is a platform for solving [Advent Of Code 2022](https://adventof
 3. *Benchmark:* To benchmark several solutions (My favorite part :star_struck:).
 
 
-## Day 01 (Benchmark of [2 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day01))
+## [Day 01](https://adventofcode.com/2022/day/1) (Benchmark of [2 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day01))
 
 |           Method |     Mean |    Error |   StdDev |   Gen0 | Allocated |
 |----------------- |---------:|---------:|---------:|-------:|----------:|
