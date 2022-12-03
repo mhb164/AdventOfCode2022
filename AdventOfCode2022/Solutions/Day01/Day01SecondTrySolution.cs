@@ -24,7 +24,7 @@ public class Day01SecondTrySolution : PuzzleSolution
         }
     }
 
-    public override string SolvePartOne(string[] inputLines)
+    public override string SolvePartOne(in string[] inputLines)
     {
         var Elves = CreateElves(in inputLines);
 
@@ -32,7 +32,7 @@ public class Day01SecondTrySolution : PuzzleSolution
                     .First().Calories
                     .ToString();
     }
-    public override string SolvePartTwo(string[] inputLines)
+    public override string SolvePartTwo(in string[] inputLines)
     {
         var Elves = CreateElves(in inputLines);
 

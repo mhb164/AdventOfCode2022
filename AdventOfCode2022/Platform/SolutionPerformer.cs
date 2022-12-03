@@ -181,48 +181,48 @@ namespace AdventOfCode2022
         public void LogPartOne(string message) => LogInfo($"{LogPrefix} Part1> {message}");
         public void LogPartTwo(string message) => LogInfo($"{LogPrefix} Part2> {message}");
 
-        public void TestPartOne() => Test(LogPartOne, Solution.SolvePartOne, SampleInput, PartOneSampleAnswer);
-        public void TestPartTwo() => Test(LogPartTwo, Solution.SolvePartTwo, SampleInput, PartTwoSampleAnswer);
-        private static void Test(Action<string> logAction, Func<string[], string> solveMethod, string[] exampleInput, string exampleAnswer)
-        {
-            logAction?.Invoke($"★ Test started...");
-            try
-            {
-                var answer = solveMethod.Invoke(exampleInput).Trim();
+        //public void TestPartOne() => Test(LogPartOne, Solution.SolvePartOne, SampleInput, PartOneSampleAnswer);
+        //public void TestPartTwo() => Test(LogPartTwo, Solution.SolvePartTwo, SampleInput, PartTwoSampleAnswer);
+        //private static void Test(Action<string> logAction, Func<string[], string> solveMethod, string[] exampleInput, string exampleAnswer)
+        //{
+        //    logAction?.Invoke($"★ Test started...");
+        //    try
+        //    {
+        //        var answer = solveMethod.Invoke(exampleInput).Trim();
 
-                if (answer == exampleAnswer)
-                {
-                    logAction?.Invoke($"✔ Text passed ({answer})");
-                }
-                else
-                {
-                    logAction?.Invoke($"✘ Text failed! ({answer} != {exampleAnswer})");
-                }
-            }
-            catch (Exception ex)
-            {
-                logAction?.Invoke($"❎ An exception occurred during test! {Environment.NewLine}{ex}");
-            }
-        }
+        //        if (answer == exampleAnswer)
+        //        {
+        //            logAction?.Invoke($"✔ Text passed ({answer})");
+        //        }
+        //        else
+        //        {
+        //            logAction?.Invoke($"✘ Text failed! ({answer} != {exampleAnswer})");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        logAction?.Invoke($"❎ An exception occurred during test! {Environment.NewLine}{ex}");
+        //    }
+        //}
 
-        public string SolvePartOne() => Solve(LogPartOne, Solution.SolvePartOne, ActualInput);
-        public string SolvePartTwo() => Solve(LogPartTwo, Solution.SolvePartTwo, ActualInput);
-        public static string Solve(Action<string> logAction, Func<string[], string> solveMethod, string[] input)
-        {
-            logAction?.Invoke($"★ Solve by actual input");
-            try
-            {
-                var answer = solveMethod.Invoke(input).Trim();
+        //public string SolvePartOne() => Solve(LogPartOne, Solution.SolvePartOne, ActualInput);
+        //public string SolvePartTwo() => Solve(LogPartTwo, Solution.SolvePartTwo, ActualInput);
+        //public static string Solve(Action<string> logAction, Func<string[], string> solveMethod, string[] input)
+        //{
+        //    logAction?.Invoke($"★ Solve by actual input");
+        //    try
+        //    {
+        //        var answer = solveMethod.Invoke(input).Trim();
 
-                logAction?.Invoke($"✔ Answer: {answer}.");
+        //        logAction?.Invoke($"✔ Answer: {answer}.");
 
-                return answer;
-            }
-            catch (Exception ex)
-            {
-                logAction?.Invoke($"❎ An exception occurred: {ex.Message}");
-                return string.Empty;
-            }
-        }
+        //        return answer;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        logAction?.Invoke($"❎ An exception occurred: {ex.Message}");
+        //        return string.Empty;
+        //    }
+        //}
     }
 }

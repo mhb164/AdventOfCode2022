@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace AdventOfCode2022;
 
 [MemoryDiagnoser(true), Config(typeof(Config))]
-public class Day01Benchmark
+public class Day02Benchmark
 {
     private class Config : ManualConfig
     {
@@ -24,10 +24,10 @@ public class Day01Benchmark
     [GlobalSetup]
     public void GlobalSetup()
     {
-        var firstTryPerformer = new SolutionPerformer<Day01Puzzle, Day01FirstTrySolution>(null);
+        var firstTryPerformer = new SolutionPerformer<Day02Puzzle, Day02FirstTrySolution>(null);
         First = firstTryPerformer.Solution;
         ActualInput = firstTryPerformer.ActualInput;
-        Second = new SolutionPerformer<Day01Puzzle, Day01SecondTrySolution>(null).Solution;
+        Second = new SolutionPerformer<Day02Puzzle, Day02SecondTrySolution>(null).Solution;
     }
 
     public PuzzleSolution First;

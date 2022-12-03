@@ -3,14 +3,26 @@
 public class Day05FirstTrySolution : PuzzleSolution
 {
     public override int DayNumber => 05;
-    public override string SolvePartOne(string[] inputLines)
+    public override string SolvePartOne(in string[] inputLines)
     {
-       throw new NotImplementedException();
+        var result = string.Empty;
+        //foreach (var inputLine in inputLines)
+        for (int i = 0; i < inputLines.Length; i++)
+        {
+
+        }
+        return result;
     }
 
-    public override string SolvePartTwo(string[] inputLines)
+    public override string SolvePartTwo(in string[] inputLines)
     {
-        throw new NotImplementedException();
+        var result = string.Empty;
+        //foreach (var inputLine in inputLines)
+        for (int i = 0; i < inputLines.Length; i++)
+        {
+
+        }
+        return result;
     }
 
 }

@@ -12,12 +12,12 @@ public class Day03Puzzle : Puzzle
     public override string Title => "";
 
     public override string[] SampleInput =>
-        ""
+        "vJrwpWtwJgWrhcsFMMfFFhFp\r\njqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL\r\nPmmdzqPrVvPwwTWBwg\r\nwMqvLMZHhHMvwLHjbvcjnnSBnvTQFn\r\nttgJtRGJQctTZtZT\r\nCrZsJsPPZsGzwwsLwLmpwMDw"
         .ToLines();
 
-    public override string PartOneSampleAnswer => "?";
-    public override string PartTwoSampleAnswer => "?";
+    public override string PartOneSampleAnswer => "157";
+    public override string PartTwoSampleAnswer => "70";
 
-    public override string PartOneActualAnswer => "?";
-    public override string PartTwoActualAnswer => "?";
+    public override string PartOneActualAnswer => "8233";
+    public override string PartTwoActualAnswer => "2821";
 }
