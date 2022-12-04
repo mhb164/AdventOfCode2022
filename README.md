@@ -49,6 +49,7 @@ This repository is a platform for solving [Advent Of Code 2022](https://adventof
 ## [Day 04: Camp Cleanup](https://adventofcode.com/2022/day/4) ([2 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day04))
 * First try was a mess! But it's work :sweat_smile:.
 * On the second try, each line works could be done separately, so I used [Parallel.ForEach](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.parallel.foreach). I should having dealt with concurrency, thus [Interlocked](https://learn.microsoft.com/en-us/dotnet/api/system.threading.interlocked) came to the game.
+* [Span](https://learn.microsoft.com/en-us/dotnet/api/system.span-1) still has its magic!
 * Benchmark results was awesome, the second try is brilliant. 
 
 |           Method |        Mean |     Gen0 |  Allocated |
