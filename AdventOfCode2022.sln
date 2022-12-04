@@ -7,7 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode2022", "AdventO
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode2022.Console", "AdventOfCode2022.Console\AdventOfCode2022.Console.csproj", "{EA71AFBE-BD8C-4862-B1B1-ED6651CEBB90}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdventOfCode2022.Benchmark", "AdventOfCode2022.Benchmark\AdventOfCode2022.Benchmark.csproj", "{6A9ADC7C-E1EB-4948-9454-B846AD9154CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdventOfCode2022.Benchmark", "AdventOfCode2022.Benchmark\AdventOfCode2022.Benchmark.csproj", "{6A9ADC7C-E1EB-4948-9454-B846AD9154CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C8E2A91B-E2F6-4970-949B-C1D4E39D1985}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.txt = LICENSE.txt
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

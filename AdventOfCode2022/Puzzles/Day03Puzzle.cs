@@ -9,7 +9,7 @@ namespace AdventOfCode2022.Puzzles;
 public class Day03Puzzle : Puzzle
 {
     public override int DayNumber => 03;
-    public override string Title => "";
+    public override string Title => "Rucksack Reorganization";
 
     public override string[] SampleInput =>
         "vJrwpWtwJgWrhcsFMMfFFhFp\r\njqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL\r\nPmmdzqPrVvPwwTWBwg\r\nwMqvLMZHhHMvwLHjbvcjnnSBnvTQFn\r\nttgJtRGJQctTZtZT\r\nCrZsJsPPZsGzwwsLwLmpwMDw"
