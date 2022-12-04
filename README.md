@@ -46,8 +46,17 @@ This repository is a platform for solving [Advent Of Code 2022](https://adventof
 |  Part2 first try | 24.39 us |      - |      32 B |
 | Part2 second try | 25.17 us |      - |      32 B |
 
-## [Day 04: Camp Cleanup](https://adventofcode.com/2022/day/4) ([1 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day04))
+## [Day 04: Camp Cleanup](https://adventofcode.com/2022/day/4) ([2 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day04))
+* First try was a mess! But it's work :sweat_smile:.
+* On the second try, each line works could be done separately, so I used [Parallel.ForEach](https://learn.microsoft.com/en-us/dotnet/api/system.threading.tasks.parallel.foreach). I should having dealt with concurrency, thus [Interlocked](https://learn.microsoft.com/en-us/dotnet/api/system.threading.interlocked) came to the game.
+* Benchmark results was awesome, the second try is brilliant. 
 
+|           Method |        Mean |     Gen0 |  Allocated |
+|----------------- |------------:|---------:|-----------:|
+|  Part1 first try | 2,170.16 us | 664.0625 | 2714.34 KB |
+| Part1 second try |    54.59 us |   0.8545 |    3.47 KB |
+|  Part2 first try | 1,827.28 us | 664.0625 | 2714.34 KB |
+| Part2 second try |    61.38 us |   0.7935 |     3.4 KB |
 
 ###### Day 05: comming soon...
 ###### Day 06: comming soon...

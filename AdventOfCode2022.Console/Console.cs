@@ -23,6 +23,7 @@ internal class Program
         //ConsoleSolutionPerformer.Perform<Day03Puzzle, Day03SecondTrySolution>();
 
         ConsoleSolutionPerformer.Perform<Day04Puzzle, Day04FirstTrySolution>();
+        ConsoleSolutionPerformer.Perform<Day04Puzzle, Day04SecondTrySolution>();
 
         //ConsoleSolutionPerformer.Perform<Day05Puzzle, Day05FirstTrySolution>();
 

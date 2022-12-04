@@ -59,8 +59,8 @@ namespace AdventOfCode2022
 
         public void LogInfo(string message) => _logger?.Info($"{message}");
         public void LogNotice(string message) => _logger?.Notice($"{message}");
-        public void LogWarning(string message) => _logger?.Warning($"{message}");
         public void LogError(string message) => _logger?.Error($"{message}");
+        public void LogCritical(string message) => _logger?.Critical($"{message}");
         public void LogStartLine(string action) => LogInfo($"--- Day{DayNumber:d2}: {Title} - {SolutionName} ({action}) ---");
         public void LogEndLine() => LogInfo($" ");
 
@@ -77,12 +77,12 @@ namespace AdventOfCode2022
                 }
                 else
                 {
-                    LogWarning($"✘ Test part one failed by sample input! ({answer} != {PartOneSampleAnswer})");
+                    LogError($"✘ Test part one failed by sample input! ({answer} != {PartOneSampleAnswer})");
                 }
             }
             catch (Exception ex)
             {
-                LogError($"❎ An exception occurred while testing part one by sample input! {Environment.NewLine}  {ex.Message}");
+                LogCritical($"❎ An exception occurred while testing part one by sample input! {Environment.NewLine}  {ex.Message}");
             }
 
             try
@@ -95,12 +95,12 @@ namespace AdventOfCode2022
                 }
                 else
                 {
-                    LogWarning($"✘ Test part two failed by sample input! ({answer} != {PartTwoSampleAnswer})");
+                    LogError($"✘ Test part two failed by sample input! ({answer} != {PartTwoSampleAnswer})");
                 }
             }
             catch (Exception ex)
             {
-                LogError($"❎ An exception occurred while testing part two by sample input! {Environment.NewLine}  {ex.Message}");
+                LogCritical($"❎ An exception occurred while testing part two by sample input! {Environment.NewLine}  {ex.Message}");
             }
             LogEndLine();
         }
@@ -118,12 +118,12 @@ namespace AdventOfCode2022
                 }
                 else
                 {
-                    LogWarning($"✘ Test part one failed by actual input! ({answer} != {PartOneActualAnswer})");
+                    LogError($"✘ Test part one failed by actual input! ({answer} != {PartOneActualAnswer})");
                 }
             }
             catch (Exception ex)
             {
-                LogError($"❎ An exception occurred while testing part one by actual input! {Environment.NewLine}  {ex.Message}");
+                LogCritical($"❎ An exception occurred while testing part one by actual input! {Environment.NewLine}  {ex.Message}");
             }
 
             try
@@ -136,12 +136,12 @@ namespace AdventOfCode2022
                 }
                 else
                 {
-                    LogWarning($"✘ Test part two failed by actual input! ({answer} != {PartTwoActualAnswer})");
+                    LogError($"✘ Test part two failed by actual input! ({answer} != {PartTwoActualAnswer})");
                 }
             }
             catch (Exception ex)
             {
-                LogError($"❎ An exception occurred while testing part two by actual input! {Environment.NewLine}  {ex.Message}");
+                LogCritical($"❎ An exception occurred while testing part two by actual input! {Environment.NewLine}  {ex.Message}");
             }
             LogEndLine();
         }
@@ -157,7 +157,7 @@ namespace AdventOfCode2022
             }
             catch (Exception ex)
             {
-                LogError($"❎ An exception occurred while solving part one:{Environment.NewLine}  {ex.Message}");
+                LogCritical($"❎ An exception occurred while solving part one:{Environment.NewLine}  {ex.Message}");
                 return string.Empty;
             }
 
@@ -169,7 +169,7 @@ namespace AdventOfCode2022
             }
             catch (Exception ex)
             {
-                LogError($"❎ An exception occurred while solving part two:{Environment.NewLine}  {ex.Message}");
+                LogCritical($"❎ An exception occurred while solving part two:{Environment.NewLine}  {ex.Message}");
                 return string.Empty;
             }
 
