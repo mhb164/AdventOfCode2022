@@ -36,8 +36,8 @@ This repository is a platform for solving [Advent Of Code 2022](https://adventof
 
 ## [Day 03: Rucksack Reorganization](https://adventofcode.com/2022/day/3) ([2 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day03))
 * There is a huge allocation in the first try, so [Span](https://learn.microsoft.com/en-us/dotnet/api/system.span-1) came and magic happened.
-* Some of developers offered [Intersect](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.intersect), but in this case a simple loop has better pereformance.
-* The full atomic benchmarks will be found in [My Benchmarks Repo #7](https://github.com/mhb164/Benchmarks)
+* Some of developers offered [Intersect](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.intersect), but in this case a simple loop has better performance.
+* The full atomic benchmarks will be found in [My Benchmarks Repo #7](https://github.com/mhb164/Benchmarks/blob/main/_07_AdventOfCodeDay03AtomicBenchmark.cs)
 
 |           Method |     Mean |   Gen0 | Allocated |
 |----------------- |---------:|-------:|----------:|
