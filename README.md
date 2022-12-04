@@ -14,7 +14,7 @@ This repository is a platform for solving [Advent Of Code 2022](https://adventof
 
 **Other tries**: I make ***Right*** and ***Fast***
 
-## [Day 01](https://adventofcode.com/2022/day/1) (Benchmark of [2 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day01))
+## [Day 01: Calorie Counting](https://adventofcode.com/2022/day/1) (Benchmark of [2 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day01))
 
 |           Method |     Mean |   Gen0 | Allocated |
 |----------------- |---------:|-------:|----------:|  
@@ -23,7 +23,7 @@ This repository is a platform for solving [Advent Of Code 2022](https://adventof
 | Part2 first try  | 50.75 us | 0.9766 |    4.2 KB |
 | Part2 second try | 45.66 us | 3.6011 |   14.8 KB |
 
-## [Day 02](https://adventofcode.com/2022/day/2) ([2 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day02))
+## [Day 02: Rock Paper Scissors](https://adventofcode.com/2022/day/2) ([2 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day02))
 * I used a tricky way in the part2, by a method to determine what shape may lead to the specific round outcome.
 * In the second try, the domain language improved by using [OOP](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/oop), [Enum](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum), [switch expression](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/switch-expression) and using [in parameter modifier](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/in-parameter-modifier) to increase performance 
   
