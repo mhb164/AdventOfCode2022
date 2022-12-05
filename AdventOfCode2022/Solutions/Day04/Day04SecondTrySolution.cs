@@ -4,9 +4,6 @@ namespace AdventOfCode2022.Solutions;
 
 public class Day04SecondTrySolution : PuzzleSolution
 {
-    private const char CammaChar = ',';
-    private const char DashChar = '-';
-
     public override int DayNumber => 04;
     public override string SolvePartOne(in string[] inputLines)
     {
@@ -41,6 +38,9 @@ public class Day04SecondTrySolution : PuzzleSolution
         return pairs.ToString();
     }
 
+    private const char CammaChar = ',';
+    private const char DashChar = '-';
+
     private static (int elf1Start, int elf1End, int elf2Start, int elf2End) GetSections(ReadOnlySpan<char> inputLineAsSpan)
     {
         var cammaIndex = inputLineAsSpan.IndexOf(CammaChar);
@@ -57,6 +57,4 @@ public class Day04SecondTrySolution : PuzzleSolution
 
         return (elf1Start, elf1End, elf2Start, elf2End);
     }
-
-
 }
