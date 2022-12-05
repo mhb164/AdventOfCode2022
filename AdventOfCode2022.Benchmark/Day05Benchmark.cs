@@ -28,10 +28,12 @@ public class Day05Benchmark
         First = firstTryPerformer.Solution;
         ActualInput = firstTryPerformer.ActualInput;
         Second = new SolutionPerformer<Day05Puzzle, Day05SecondTrySolution>(null).Solution;
+        Third = new SolutionPerformer<Day05Puzzle, Day05ThirdTrySolution>(null).Solution;
     }
 
     public PuzzleSolution First;
     public PuzzleSolution Second;
+    public PuzzleSolution Third;
     public string[] ActualInput;
 
     [Benchmark(Description = "Day05 Part1 First")]
@@ -46,6 +48,12 @@ public class Day05Benchmark
         _ = Second.SolvePartOne(in ActualInput);
     }
 
+    [Benchmark(Description = "Day05 Part1 Third")]
+    public void PartOneThirdTry()
+    {
+        _ = Third.SolvePartOne(in ActualInput);
+    }
+
     [Benchmark(Description = "Day05 Part2 First")]
     public void PartTwoFirstTry()
     {
@@ -56,5 +64,11 @@ public class Day05Benchmark
     public void PartTwoSecondTry()
     {
         _ = Second.SolvePartTwo(in ActualInput);
+    }
+
+    [Benchmark(Description = "Day05 Part2 Third")]
+    public void PartTwoThirdTry()
+    {
+        _ = Third.SolvePartTwo(in ActualInput);
     }
 }

@@ -25,7 +25,7 @@ This repository is a platform for solving [Advent Of Code 2022](https://adventof
 
 ## [Day 02: Rock Paper Scissors](https://adventofcode.com/2022/day/2) ([2 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day02))
 * I used a tricky way in the part2, by a method to determine what shape may lead to the specific round outcome.
-* In the second try, the domain language improved by using [OOP](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/oop), [Enum](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum), [switch expression](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/switch-expression) and using [in parameter modifier](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/in-parameter-modifier) to increase performance 
+* In the second try, the puzzle language improved by [OOP](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/oop), [Enum](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum), [switch expression](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/switch-expression) and [in parameter modifier](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/in-parameter-modifier) to increase performance 
   
 |           Method |     Mean | Allocated |
 |----------------- |---------:|----------:|
@@ -59,8 +59,19 @@ This repository is a platform for solving [Advent Of Code 2022](https://adventof
 |  Part2 first try | 1,827.28 us | 664.0625 | 2714.34 KB |
 | Part2 second try |    61.38 us |   0.7935 |     3.4 KB |
 
-## [Day 05: Supply Stacks](https://adventofcode.com/2022/day/5) ([1 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day05))
+## [Day 05: Supply Stacks](https://adventofcode.com/2022/day/5) ([3 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day05))
 * I think the chalenge was reading stack from input :grin:
+* On the second try, the puzzle language and performance improved.
+* On the third try, solution redeveloped by [OOP](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/oop).
+
+|           Method |      Mean |    Gen0 | Allocated |
+|----------------- |----------:|--------:|----------:|
+|  Part1 first try | 200.20 us | 31.4941 | 129.52 KB |
+| Part1 second try |  55.27 us |  1.0376 |   4.38 KB |
+|  Part1 third try |  54.01 us |  1.0986 |   4.67 KB |
+|  Part2 first try | 232.25 us | 42.4805 | 173.58 KB |
+| Part2 second try |  63.44 us |  5.4932 |  22.53 KB |
+|  Part2 third try |  59.39 us |  5.4932 |  22.83 KB |
 
 ###### Day 06: comming soon...
 ###### Day 07: comming soon...
