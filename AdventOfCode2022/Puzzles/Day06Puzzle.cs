@@ -9,15 +9,15 @@ namespace AdventOfCode2022.Puzzles;
 public class Day06Puzzle : Puzzle
 {
     public override int DayNumber => 06;
-    public override string Title => "";
+    public override string Title => "Tuning Trouble";
 
     public override string[] SampleInput =>
-        ""
+        "mjqjpqmgbljsphdztnvjfqwrcgsmlb"
         .ToLines();
 
-    public override string PartOneSampleAnswer => "?";
-    public override string PartTwoSampleAnswer => "?";
+    public override string PartOneSampleAnswer => "7";
+    public override string PartTwoSampleAnswer => "19";
 
-    public override string PartOneActualAnswer => "?";
-    public override string PartTwoActualAnswer => "?";
+    public override string PartOneActualAnswer => "1912";
+    public override string PartTwoActualAnswer => "2122";
 }

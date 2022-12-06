@@ -1,28 +1,24 @@
-﻿namespace AdventOfCode2022.Solutions;
+﻿using System.Net.Sockets;
+
+namespace AdventOfCode2022.Solutions;
 
 public class Day06FirstTrySolution : PuzzleSolution
 {
     public override int DayNumber => 06;
     public override string SolvePartOne(in string[] inputLines)
-    {
-        var result = string.Empty;
-        //foreach (var inputLine in inputLines)
-        for (int i = 0; i < inputLines.Length; i++)
-        {
-
-        }
-        return result;
-    }
+        => ReportStartOfPacket(inputLines[0].AsSpan(), 4);
 
     public override string SolvePartTwo(in string[] inputLines)
-    {
-        var result = string.Empty;
-        //foreach (var inputLine in inputLines)
-        for (int i = 0; i < inputLines.Length; i++)
-        {
+        => ReportStartOfPacket(inputLines[0].AsSpan(), 14);
 
+    private static string ReportStartOfPacket(ReadOnlySpan<char> datastream, int length)
+    {
+        for (int i = 0; i < datastream.Length - length; i++)
+        {
+            if (datastream[i..(i + length)].ToArray().Distinct().Count() == length)
+                return (i + length).ToString();
         }
-        return result;
+        return string.Empty;
     }
 
 }

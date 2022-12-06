@@ -25,11 +25,11 @@ internal class Program
         //ConsoleSolutionPerformer.Perform<Day04Puzzle, Day04FirstTrySolution>();
         //ConsoleSolutionPerformer.Perform<Day04Puzzle, Day04SecondTrySolution>();
 
-        ConsoleSolutionPerformer.Perform<Day05Puzzle, Day05FirstTrySolution>();
-        ConsoleSolutionPerformer.Perform<Day05Puzzle, Day05SecondTrySolution>();
-        ConsoleSolutionPerformer.Perform<Day05Puzzle, Day05ThirdTrySolution>();
+        //ConsoleSolutionPerformer.Perform<Day05Puzzle, Day05FirstTrySolution>();
+        //ConsoleSolutionPerformer.Perform<Day05Puzzle, Day05SecondTrySolution>();
+        //ConsoleSolutionPerformer.Perform<Day05Puzzle, Day05ThirdTrySolution>();
 
-        //ConsoleSolutionPerformer.Perform<Day06Puzzle, Day06FirstTrySolution>();
+        ConsoleSolutionPerformer.Perform<Day06Puzzle, Day06FirstTrySolution>();
 
         //ConsoleSolutionPerformer.Perform<Day07Puzzle, Day07FirstTrySolution>();
 
