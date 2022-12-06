@@ -75,8 +75,8 @@ This repository is a platform for solving [Advent Of Code 2022](https://adventof
 
 ## [Day 06: Tuning Trouble](https://adventofcode.com/2022/day/6) ([3 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day06))
 * [Span](https://learn.microsoft.com/en-us/dotnet/api/system.span-1) removes unnecessary allocations.
-* On the first try, 'HasDuplicate' method wreck all ***Span*** efforts.
-* On the second try, 'HasDuplicate' method rewrited by nested for loop and results are pleasant. 
+* On the first try, 'HasDuplicate' method wreckس all ***Span*** efforts.
+* On the second try, 'HasDuplicate' method rewrote by nested for loop and results are pleasing. 
 * On the third try, I used [HashSet](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1) to find duplicates.
 
 |           Method |      Mean |     Gen0 | Allocated |
