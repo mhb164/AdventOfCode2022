@@ -1,5 +1,6 @@
 ﻿namespace AdventOfCode2022.Solutions;
 
+[PuzzleDayNumber(09)]
 public class Day09FirstTrySolution : PuzzleSolution
 {
     public override int DayNumber => 09;

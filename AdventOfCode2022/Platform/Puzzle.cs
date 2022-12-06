@@ -19,4 +19,5 @@ namespace AdventOfCode2022
         public abstract string PartTwoActualAnswer { get; }
 
     }
+
 }

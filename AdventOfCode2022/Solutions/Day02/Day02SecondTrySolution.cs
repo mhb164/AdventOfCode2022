@@ -4,6 +4,7 @@ using static System.Formats.Asn1.AsnWriter;
 
 namespace AdventOfCode2022.Solutions;
 
+[PuzzleDayNumber(02)]
 public class Day02SecondTrySolution : PuzzleSolution
 {
     public override int DayNumber => 02;

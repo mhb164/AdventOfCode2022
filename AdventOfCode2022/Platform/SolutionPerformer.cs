@@ -1,31 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AdventOfCode2022
 {
-    public interface ISolutionPerformer
-    {
-        public abstract Puzzle Puzzle { get; }
-        public PuzzleSolution Solution { get; }
-        public string[] ActualInput { get; }
-    }
-
-    public sealed class SolutionPerformer<TPuzzle, TPuzzleSolution> : ISolutionPerformer
-        where TPuzzle : Puzzle
-        where TPuzzleSolution : PuzzleSolution
+    public partial class SolutionPerformer
     {
         private readonly ILogger _logger;
 
-        public SolutionPerformer(ILogger logger)
+        public SolutionPerformer(ILogger logger, Puzzle puzzle, PuzzleSolution solution)
         {
             _logger = logger;
 
-            Puzzle = Activator.CreateInstance(typeof(TPuzzle)) as Puzzle;
-            Solution = Activator.CreateInstance(typeof(TPuzzleSolution)) as PuzzleSolution;
+            Puzzle = puzzle;
+            Solution = solution;
 
             if (Puzzle.DayNumber != Solution.DayNumber)
             {
@@ -64,7 +56,7 @@ namespace AdventOfCode2022
         public void LogStartLine(string action) => LogInfo($"--- Day{DayNumber:d2}: {Title} - {SolutionName} ({action}) ---");
         public void LogEndLine() => LogInfo($" ");
 
-        public void SampleTest()
+        public void SampleTest(bool debuging)
         {
             LogStartLine("Sample Test");
             try
@@ -82,6 +74,12 @@ namespace AdventOfCode2022
             }
             catch (Exception ex)
             {
+                if (debuging)
+                {
+                    LogCritical($"❎ An exception occurred while testing part one by sample input!");
+                    throw;
+                }
+
                 LogCritical($"❎ An exception occurred while testing part one by sample input! {Environment.NewLine}  {ex.Message}");
             }
 
@@ -100,12 +98,18 @@ namespace AdventOfCode2022
             }
             catch (Exception ex)
             {
+                if (debuging)
+                {
+                    LogCritical($"❎ An exception occurred while testing part two by sample input!");
+                    throw;
+                }
+
                 LogCritical($"❎ An exception occurred while testing part two by sample input! {Environment.NewLine}  {ex.Message}");
             }
             LogEndLine();
         }
 
-        public void ActualTest()
+        public void ActualTest(bool debuging)
         {
             LogStartLine("Actual Test");
             try
@@ -123,6 +127,12 @@ namespace AdventOfCode2022
             }
             catch (Exception ex)
             {
+                if (debuging)
+                {
+                    LogCritical($"❎ An exception occurred while testing part one by actual input!");
+                    throw;
+                }
+
                 LogCritical($"❎ An exception occurred while testing part one by actual input! {Environment.NewLine}  {ex.Message}");
             }
 
@@ -141,12 +151,18 @@ namespace AdventOfCode2022
             }
             catch (Exception ex)
             {
+                if (debuging)
+                {
+                    LogCritical($"❎ An exception occurred while testing part two by actual input!");
+                    throw;
+                }
+
                 LogCritical($"❎ An exception occurred while testing part two by actual input! {Environment.NewLine}  {ex.Message}");
             }
             LogEndLine();
         }
 
-        public string Solve()
+        public string Solve(bool debuging)
         {
             LogStartLine("Solve");
             var partOneAnswer = default(string);
@@ -157,6 +173,12 @@ namespace AdventOfCode2022
             }
             catch (Exception ex)
             {
+                if (debuging)
+                {
+                    LogCritical($"❎ An exception occurred while solving part one.");
+                    throw;
+                }
+
                 LogCritical($"❎ An exception occurred while solving part one:{Environment.NewLine}  {ex.Message}");
                 return string.Empty;
             }
@@ -169,6 +191,12 @@ namespace AdventOfCode2022
             }
             catch (Exception ex)
             {
+                if (debuging)
+                {
+                    LogCritical($"❎ An exception occurred while solving part two.");
+                    throw;
+                }
+
                 LogCritical($"❎ An exception occurred while solving part two:{Environment.NewLine}  {ex.Message}");
                 return string.Empty;
             }
@@ -181,48 +209,8 @@ namespace AdventOfCode2022
         public void LogPartOne(string message) => LogInfo($"{LogPrefix} Part1> {message}");
         public void LogPartTwo(string message) => LogInfo($"{LogPrefix} Part2> {message}");
 
-        //public void TestPartOne() => Test(LogPartOne, Solution.SolvePartOne, SampleInput, PartOneSampleAnswer);
-        //public void TestPartTwo() => Test(LogPartTwo, Solution.SolvePartTwo, SampleInput, PartTwoSampleAnswer);
-        //private static void Test(Action<string> logAction, Func<string[], string> solveMethod, string[] exampleInput, string exampleAnswer)
-        //{
-        //    logAction?.Invoke($"★ Test started...");
-        //    try
-        //    {
-        //        var answer = solveMethod.Invoke(exampleInput).Trim();
 
-        //        if (answer == exampleAnswer)
-        //        {
-        //            logAction?.Invoke($"✔ Text passed ({answer})");
-        //        }
-        //        else
-        //        {
-        //            logAction?.Invoke($"✘ Text failed! ({answer} != {exampleAnswer})");
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        logAction?.Invoke($"❎ An exception occurred during test! {Environment.NewLine}{ex}");
-        //    }
-        //}
-
-        //public string SolvePartOne() => Solve(LogPartOne, Solution.SolvePartOne, ActualInput);
-        //public string SolvePartTwo() => Solve(LogPartTwo, Solution.SolvePartTwo, ActualInput);
-        //public static string Solve(Action<string> logAction, Func<string[], string> solveMethod, string[] input)
-        //{
-        //    logAction?.Invoke($"★ Solve by actual input");
-        //    try
-        //    {
-        //        var answer = solveMethod.Invoke(input).Trim();
-
-        //        logAction?.Invoke($"✔ Answer: {answer}.");
-
-        //        return answer;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        logAction?.Invoke($"❎ An exception occurred: {ex.Message}");
-        //        return string.Empty;
-        //    }
-        //}
     }
+
+    
 }

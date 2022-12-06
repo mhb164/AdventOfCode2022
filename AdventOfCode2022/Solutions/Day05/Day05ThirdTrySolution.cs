@@ -4,6 +4,7 @@ using System.Runtime.InteropServices;
 
 namespace AdventOfCode2022.Solutions;
 
+[PuzzleDayNumber(05)]
 public class Day05ThirdTrySolution : PuzzleSolution
 {
     public override int DayNumber => 05;

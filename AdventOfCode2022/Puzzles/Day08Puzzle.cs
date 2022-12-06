@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2022.Puzzles;
 
+[PuzzleDayNumber(08)]
 public class Day08Puzzle : Puzzle
 {
     public override int DayNumber => 08;
