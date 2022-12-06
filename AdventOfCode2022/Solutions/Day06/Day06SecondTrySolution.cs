@@ -2,7 +2,7 @@
 
 namespace AdventOfCode2022.Solutions;
 
-public class Day06FirstTrySolution : PuzzleSolution
+public class Day06SecondTrySolution : PuzzleSolution
 {
     public override int DayNumber => 06;
     public override string SolvePartOne(in string[] inputLines)
@@ -23,5 +23,16 @@ public class Day06FirstTrySolution : PuzzleSolution
     }
 
     private static bool HasDuplicate(ReadOnlySpan<char> slice)
-        => slice.ToArray().Distinct().Count() != slice.Length;
+    {
+        for (int i = 0; i < slice.Length - 1; i++)
+            for (int j = i + 1; j < slice.Length; j++)
+            {
+                if (slice[i] == slice[j])
+                    return true;
+            }
+
+        return false;
+    }
+
+  
 }

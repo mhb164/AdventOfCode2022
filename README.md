@@ -73,7 +73,20 @@ This repository is a platform for solving [Advent Of Code 2022](https://adventof
 | Part2 second try |  63.44 us |  5.4932 |  22.53 KB |
 |  Part2 third try |  59.39 us |  5.4932 |  22.83 KB |
 
-## [Day 06: Supply Stacks](https://adventofcode.com/2022/day/6) ([1 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day06))
+## [Day 06: Tuning Trouble](https://adventofcode.com/2022/day/6) ([3 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day06))
+* [Span](https://learn.microsoft.com/en-us/dotnet/api/system.span-1) removes unnecessary allocations.
+* On the first try, 'HasDuplicate' method wreck all ***Span*** efforts.
+* On the second try, 'HasDuplicate' method rewrited by nested for loop and results are pleasant. 
+* On the third try, I used [HashSet](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1) to find duplicates.
+
+|           Method |      Mean |     Gen0 | Allocated |
+|----------------- |----------:|---------:|----------:|
+|  Part1 first try | 351.67 us | 164.0625 |  687480 B |
+| Part1 second try |  14.52 us |        - |      32 B |
+|  Part1 third try |  90.91 us |        - |     264 B |
+|  Part2 first try | 792.21 us | 274.4141 | 1148672 B |
+| Part2 second try |  28.85 us |        - |      32 B |
+|  Part2 third try | 105.22 us |        - |     424 B |
 
 ###### Day 07: comming soon...
 ###### Day 08: comming soon...

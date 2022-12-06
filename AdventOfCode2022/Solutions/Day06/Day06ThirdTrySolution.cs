@@ -2,7 +2,7 @@
 
 namespace AdventOfCode2022.Solutions;
 
-public class Day06FirstTrySolution : PuzzleSolution
+public class Day06ThirdTrySolution : PuzzleSolution
 {
     public override int DayNumber => 06;
     public override string SolvePartOne(in string[] inputLines)
@@ -13,15 +13,17 @@ public class Day06FirstTrySolution : PuzzleSolution
 
     private static string ReportStartOfPacket(ReadOnlySpan<char> datastream, int length)
     {
+        var set = new HashSet<char>(length);
         for (int i = 0; i < datastream.Length - length; i++)
         {
-            if (HasDuplicate(datastream[i..(i + length)]))
-                continue;
-            return (i + length).ToString();
+            set.Clear();
+            foreach (var item in datastream[i..(i + length)])
+                if (!set.Add(item))
+                    break;
+
+            if (set.Count == length)
+                return (i + length).ToString();
         }
         return string.Empty;
     }
-
-    private static bool HasDuplicate(ReadOnlySpan<char> slice)
-        => slice.ToArray().Distinct().Count() != slice.Length;
 }
