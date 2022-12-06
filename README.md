@@ -78,6 +78,7 @@ This repository is a platform for solving [Advent Of Code 2022](https://adventof
 * On the first try, 'HasDuplicate' method wreckس all ***Span*** efforts.
 * On the second try, 'HasDuplicate' method rewrote by nested for loop and results are pleasing. 
 * On the third try, I used [HashSet](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1) to find duplicates.
+* The full atomic benchmarks will be found in [My Benchmarks Repo #8](https://github.com/mhb164/Benchmarks/blob/main/_08_AdventOfCodeDay06AtomicBenchmark.cs)	
 
 |           Method |      Mean |     Gen0 | Allocated |
 |----------------- |----------:|---------:|----------:|
