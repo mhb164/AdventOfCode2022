@@ -60,9 +60,9 @@ This repository is a platform for solving [Advent Of Code 2022](https://adventof
 | Part2 second try |    61.38 us |   0.7935 |     3.4 KB |
 
 ## [Day 05: Supply Stacks](https://adventofcode.com/2022/day/5) ([3 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day05))
-* I think the chalenge was reading stack from input :grin:
+* I think the challenge was reading stack from input :grin:
 * On the second try, the puzzle language and performance improved.
-* On the third try, solution redeveloped by [OOP](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/oop).
+* On the third try, the solution was redeveloped ([object-oriented](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/oop)).
 
 |           Method |      Mean |    Gen0 | Allocated |
 |----------------- |----------:|--------:|----------:|
