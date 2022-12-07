@@ -90,7 +90,7 @@ This repository is a platform for solving [Advent Of Code 2022](https://adventof
 |  Part2 third try | 105.22 us |        - |     424 B |
 
 ## [Day 07: No Space Left On Device](https://adventofcode.com/2022/day/7) ([2 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day07))
-* First try worked
+* First try worked 
 * On the second try
   - The code refactored ([object-oriented](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/oop), [Span](https://learn.microsoft.com/en-us/dotnet/api/system.span-1)) 
   - Benchmarks are good enough (each resource almost halved)
