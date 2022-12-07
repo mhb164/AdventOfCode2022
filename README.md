@@ -89,8 +89,18 @@ This repository is a platform for solving [Advent Of Code 2022](https://adventof
 | Part2 second try |  28.85 us |        - |      32 B |
 |  Part2 third try | 105.22 us |        - |     424 B |
 
-## [Day 07: No Space Left On Device](https://adventofcode.com/2022/day/7) ([1 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day07))
+## [Day 07: No Space Left On Device](https://adventofcode.com/2022/day/7) ([2 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day07))
+* First try worked
+* On the second try
+  - The code refactored ([object-oriented](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/oop), [Span](https://learn.microsoft.com/en-us/dotnet/api/system.span-1)) 
+  - Benchmarks are good enough (each resource almost halved)
 
+|           Method |     Mean |    Gen0 |    Gen1 | Allocated |
+|----------------- |---------:|--------:|--------:|----------:|
+|  Part1 first try | 394.9 us | 72.2656 | 13.6719 | 295.95 KB |
+| Part1 second try | 144.0 us | 43.2129 |  1.7090 | 177.81 KB |
+|  Part2 first try | 435.9 us | 80.0781 |  0.9766 | 330.38 KB |
+| Part2 second try | 145.8 us | 43.2129 |  1.2207 |  177.9 KB |
 
 ###### Day 08: comming soon...
 ###### Day 09: comming soon...
