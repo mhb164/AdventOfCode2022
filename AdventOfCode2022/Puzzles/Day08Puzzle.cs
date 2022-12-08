@@ -13,12 +13,12 @@ public class Day08Puzzle : Puzzle
     public override string Title => "";
 
     public override string[] SampleInput =>
-        ""
+        "30373\r\n25512\r\n65332\r\n33549\r\n35390"
         .ToLines();
 
-    public override string PartOneSampleAnswer => "?";
-    public override string PartTwoSampleAnswer => "?";
+    public override string PartOneSampleAnswer => "21";
+    public override string PartTwoSampleAnswer => "8";
 
-    public override string PartOneActualAnswer => "?";
-    public override string PartTwoActualAnswer => "?";
+    public override string PartOneActualAnswer => "1798";
+    public override string PartTwoActualAnswer => "259308";
 }
