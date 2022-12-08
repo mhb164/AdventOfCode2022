@@ -78,7 +78,7 @@ This repository is a platform for solving [Advent Of Code 2022](https://adventof
 * On the first try, 'HasDuplicate' method wreckس all ***Span*** efforts.
 * On the second try, 'HasDuplicate' method rewrote by nested for loop and results are pleasing. 
 * On the third try, I used [HashSet](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.hashset-1) to find duplicates.
-* The full atomic benchmarks will be found in [My Benchmarks Repo #8](https://github.com/mhb164/Benchmarks/blob/main/_08_AdventOfCodeDay06AtomicBenchmark.cs)	
+* The full atomic benchmarks will be found in [My Benchmarks Repo #8](https://github.com/mhb164/Benchmarks/blob/main/_08_AdventOfCodeDay06AtomicBenchmark.cs).	
 
 |           Method |      Mean |     Gen0 | Allocated |
 |----------------- |----------:|---------:|----------:|
@@ -90,10 +90,10 @@ This repository is a platform for solving [Advent Of Code 2022](https://adventof
 |  Part2 third try | 105.22 us |        - |     424 B |
 
 ## [Day 07: No Space Left On Device](https://adventofcode.com/2022/day/7) ([2 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day07))
-* First try worked 
-* On the second try
-  - The code refactored ([object-oriented](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/oop), [Span](https://learn.microsoft.com/en-us/dotnet/api/system.span-1)) 
-  - Benchmarks are good enough (each resource almost halved)
+* First try worked.
+* On the second try:
+  - The code refactored ([object-oriented](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/oop), [Span](https://learn.microsoft.com/en-us/dotnet/api/system.span-1)).
+  - Benchmarks are good enough (each resource almost halved).
 
 |           Method |     Mean |    Gen0 |    Gen1 | Allocated |
 |----------------- |---------:|--------:|--------:|----------:|
@@ -102,7 +102,19 @@ This repository is a platform for solving [Advent Of Code 2022](https://adventof
 |  Part2 first try | 435.9 us | 80.0781 |  0.9766 | 330.38 KB |
 | Part2 second try | 145.8 us | 43.2129 |  1.2207 |  177.9 KB |
 
-## [Day 08: Treetop Tree House](https://adventofcode.com/2022/day/8) ([1 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day08))
+## [Day 08: Treetop Tree House](https://adventofcode.com/2022/day/8) ([2 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day08))
+* First try worked. 
+* On the second try:
+  - The code refactored ([object-oriented](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/oop), [in parameter modifier](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/in-parameter-modifier)). 
+  - Top, Right, Down and Left trees cached in each tree at jungle creation.
+  - Benchmarks are amazing!
+
+|           Method |      Mean |      Gen0 |     Gen1 |     Gen2 |   Allocated |
+|----------------- |----------:|----------:|---------:|---------:|------------:|
+|  Part1 first try | 23.807 ms | 6718.7500 |  31.2500 |        - | 27531.43 KB |
+| Part1 second try |  2.152 ms |  167.9688 | 109.3750 |  39.0625 |   948.96 KB |
+|  Part2 first try | 11.093 ms | 6421.8750 | 156.2500 | 125.0000 | 26637.53 KB |
+| Part2 second try |  2.179 ms |  167.9688 | 109.3750 |  39.0625 |   948.95 KB |
 
 ###### Day 09: comming soon...
 ###### Day 10: comming soon...

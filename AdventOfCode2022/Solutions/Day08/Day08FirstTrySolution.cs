@@ -98,10 +98,10 @@ public class Day08FirstTrySolution : PuzzleSolution
 
     private static List<List<int>> Parse(string[] inputLines)
     {
-        var grid = new List<List<int>>();
+        var grid = new List<List<int>>(inputLines.Length);
         for (int i = 0; i < inputLines.Length; i++)
         {
-            grid.Add(new List<int>());
+            grid.Add(new List<int>(inputLines[i].Length));
             for (int j = 0; j < inputLines[i].Length; j++)
             {
                 grid[i].Add(int.Parse(inputLines[i][j].ToString()));
