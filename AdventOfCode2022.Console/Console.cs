@@ -35,8 +35,8 @@ internal class Program
         //ConsoleSolutionPerformer.PerformDebug(24);
         //ConsoleSolutionPerformer.PerformDebug(25);
 
-        var today = (DateTime.Now.Date - new DateTime(2022, 12, 1)).Days + 1;
-        //var today = 00; 
+        //var today = (DateTime.Now.Date - new DateTime(2022, 12, 1)).Days + 1;
+        var today = 09; 
         ConsoleSolutionPerformer.PerformDebug(today);
 
         ////Perform until today

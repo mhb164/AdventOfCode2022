@@ -116,7 +116,19 @@ This repository is a platform for solving [Advent Of Code 2022](https://adventof
 |  Part2 first try | 11.093 ms | 6421.8750 | 156.2500 | 125.0000 | 26637.53 KB |
 | Part2 second try |  2.179 ms |  167.9688 | 109.3750 |  39.0625 |   948.95 KB |
 
-## [Day 09: Rope Bridge](https://adventofcode.com/2022/day/9) ([1 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day09))
+## [Day 09: Rope Bridge](https://adventofcode.com/2022/day/9) ([2 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day09))
+* First try worked :upside_down_face:. 
+* On the second try:
+  - The code refactored ([object-oriented](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/oop) (mostly encapsulation), [Enumerable.Select](https://learn.microsoft.com/en-us/dotnet/api/system.linq.enumerable.select) to parse input). 
+  - Puzzle language improved.
+  - Benchmarks are incredible!
+
+|           Method |         Mean |     Gen0 |    Gen1 |    Gen2 |  Allocated |
+|----------------- |-------------:|---------:|--------:|--------:|-----------:|
+|  Part1 first try | 802,323.0 us |        - |       - |       - | 3029.55 KB |
+| Part1 second try |     793.4 us |  82.0313 | 41.0156 | 41.0156 |  362.26 KB |
+|  Part2 first try | 293,346.1 us | 500.0000 |       - |       - | 2884.73 KB |
+| Part2 second try |   1,250.7 us |  46.8750 |       - |       - |  198.26 KB |
 
 ###### Day 10: comming soon...
 ###### Day 11: comming soon...

@@ -12,7 +12,7 @@ public class Day09FirstTrySolution : PuzzleSolution
         public int row = 0;
         public int col = 0;
 
-        public override string ToString() => $"{row}, {col}";
+        public override string ToString() => $"({row}, {col})";
 
         internal void move(pos h)
         {
@@ -35,6 +35,7 @@ public class Day09FirstTrySolution : PuzzleSolution
             return;
         }
     }
+
     public override string SolvePartOne(in string[] inputLines)
     {
         var positions = new List<pos>();
@@ -97,72 +98,7 @@ public class Day09FirstTrySolution : PuzzleSolution
             positions.Add(new pos() { row = t.row, col = t.col });
         }
     }
-
-    //class pos2
-    //{
-    //    public int row = 0;
-    //    public int col = 0;
-
-    //    public override string ToString() => $"{row}, {col}";
-    //    internal void move(pos2 h)
-    //    {
-    //        if (Math.Abs(h.row - row) > 1)
-    //        {
-    //            row += h.row > row ? 1 : -1;
-    //            if (h.col != col)
-    //            {
-    //                col += h.col > col ? 1 : -1;
-    //            }
-    //        }
-    //        else if (Math.Abs(h.col - col) > 1)
-    //        {
-    //            col += h.col > col ? 1 : -1;
-    //            if (h.row != row)
-    //            {
-    //                row += h.row > row ? 1 : -1;
-    //            }
-    //        }
-    //        return;
-
-
-    //        var disrow = h.row - row;
-    //        var discol = h.col - col;
-
-    //        if (disrow > 1)
-    //        {
-    //            row++;
-    //            if (discol != 0)
-    //            {
-    //                col += discol;
-    //            }
-    //        }
-    //        else if (disrow < -1)
-    //        {
-    //            row--;
-    //            if (discol != 0)
-    //            {
-    //                col += discol;
-    //            }
-    //        }
-    //        else if (discol > 1)
-    //        {
-    //            col++;
-    //            if (disrow != 0)
-    //            {
-    //                row += disrow;
-    //            }
-    //        }
-    //        else if (discol < -1)
-    //        {
-    //            col--;
-    //            if (disrow != 0)
-    //            {
-    //                row += disrow;
-    //            }
-    //        }
-    //    }
-    //}
-
+    
     public override string SolvePartTwo(in string[] inputLines)
     {
         var result = string.Empty;
@@ -216,6 +152,7 @@ public class Day09FirstTrySolution : PuzzleSolution
         }
         return positions.Count.ToString();
     }
+
     private void Update2(pos h, pos[] t, List<pos> positions)
     {
         var existed = positions.FirstOrDefault(x => x.row == t[8].row && x.col == t[8].col);
