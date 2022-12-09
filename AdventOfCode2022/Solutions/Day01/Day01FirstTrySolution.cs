@@ -4,14 +4,14 @@
 public class Day01FirstTrySolution : PuzzleSolution
 {
     public override int DayNumber => 01; 
-    public override string SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(in string[] inputLines)
     {
         var ElvesCalories = CreateElvesCalories(in inputLines);
 
-        return ElvesCalories.Max().ToString();
+        return ElvesCalories.Max();
     }
 
-    public override string SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(in string[] inputLines)
     {
         var ElvesCalories = CreateElvesCalories(in inputLines);
 
@@ -19,7 +19,7 @@ public class Day01FirstTrySolution : PuzzleSolution
 
         return (ElvesCalories[ElvesCalories.Count - 1] +
                 ElvesCalories[ElvesCalories.Count - 2] +
-                ElvesCalories[ElvesCalories.Count - 3]).ToString();
+                ElvesCalories[ElvesCalories.Count - 3]);
     }
 
     private static List<long> CreateElvesCalories(in string[] inputLines)

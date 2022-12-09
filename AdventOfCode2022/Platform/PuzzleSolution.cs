@@ -9,6 +9,6 @@ namespace AdventOfCode2022;
 public abstract class PuzzleSolution
 {
     public abstract int DayNumber { get; }
-    public abstract string SolvePartOne(in string[] inputLines);
-    public abstract string SolvePartTwo(in string[] inputLines);
+    public abstract object SolvePartOne(in string[] inputLines);
+    public abstract object SolvePartTwo(in string[] inputLines);
 }

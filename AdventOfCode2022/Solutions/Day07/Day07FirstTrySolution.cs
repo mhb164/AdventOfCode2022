@@ -7,13 +7,13 @@ public class Day07FirstTrySolution : PuzzleSolution
 {
     public override int DayNumber => 07;
 
-    public override string SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(in string[] inputLines)
     {
         var storage = Parse(inputLines);
-        return storage.all.Values.Where(x => x.Size < 100_000).Sum(x => x.Size).ToString();
+        return storage.all.Values.Where(x => x.Size < 100_000).Sum(x => x.Size);
     }
 
-    public override string SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(in string[] inputLines)
     {
         var storage = Parse(inputLines);
 
@@ -21,7 +21,7 @@ public class Day07FirstTrySolution : PuzzleSolution
         var needSpace = 30000000 - freeSpace;
         var target = storage.all.Values.Where(x => x.Size >= needSpace).ToList();
 
-        return target.Min(x => x.Size).ToString();
+        return target.Min(x => x.Size);
     }
 
     class Directory

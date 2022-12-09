@@ -4,7 +4,7 @@
 public class Day05FirstTrySolution : PuzzleSolution
 {
     public override int DayNumber => 05;
-    public override string SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(in string[] inputLines)
     {
         var stacks = new Dictionary<int, Stack<char>>();
         var i = 0;
@@ -56,7 +56,7 @@ public class Day05FirstTrySolution : PuzzleSolution
     }
 
 
-    public override string SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(in string[] inputLines)
     {
         var stacks = new Dictionary<int, Stack<char>>();
         var i = 0;

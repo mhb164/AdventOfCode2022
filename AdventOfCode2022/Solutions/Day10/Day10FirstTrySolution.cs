@@ -4,7 +4,7 @@
 public class Day10FirstTrySolution : PuzzleSolution
 {
     public override int DayNumber => 10;
-    public override string SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(in string[] inputLines)
     {
         var result = string.Empty;
         //foreach (var inputLine in inputLines)
@@ -15,7 +15,7 @@ public class Day10FirstTrySolution : PuzzleSolution
         return result;
     }
 
-    public override string SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(in string[] inputLines)
     {
         var result = string.Empty;
         //foreach (var inputLine in inputLines)

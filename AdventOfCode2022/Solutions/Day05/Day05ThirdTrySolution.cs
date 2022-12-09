@@ -9,11 +9,11 @@ public class Day05ThirdTrySolution : PuzzleSolution
 {
     public override int DayNumber => 05;
 
-    public override string SolvePartOne(in string[] inputLines) => Solve<CrateMover9000>(inputLines);
+    public override object SolvePartOne(in string[] inputLines) => Solve<CrateMover9000>(inputLines);
 
-    public override string SolvePartTwo(in string[] inputLines) => Solve<CrateMover9001>(inputLines);
+    public override object SolvePartTwo(in string[] inputLines) => Solve<CrateMover9001>(inputLines);
 
-    private static string Solve<T>(in string[] inputLines)
+    private static object Solve<T>(in string[] inputLines)
         where T : Crane
     {
         var crane = (Activator.CreateInstance(typeof(T)) as Crane)
@@ -24,7 +24,7 @@ public class Day05ThirdTrySolution : PuzzleSolution
             crane.ReArrange(inputLines[i].AsSpan());
         }
 
-        return crane.ToString();
+        return crane;
     }
 
 

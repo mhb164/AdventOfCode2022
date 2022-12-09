@@ -4,7 +4,7 @@
 public class Day08FirstTrySolution : PuzzleSolution
 {
     public override int DayNumber => 08;
-    public override string SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(in string[] inputLines)
     {
         var grid = Parse(inputLines);
 
@@ -61,10 +61,10 @@ public class Day08FirstTrySolution : PuzzleSolution
 
 
 
-        return visiables.Count.ToString();
+        return visiables.Count;
     }
 
-    public override string SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(in string[] inputLines)
     {
         var grid = Parse(inputLines);
 
@@ -93,7 +93,7 @@ public class Day08FirstTrySolution : PuzzleSolution
                 scores.Add(new(i, j, score));
             }
 
-        return scores.Max(x => x.Item3).ToString();
+        return scores.Max(x => x.Item3);
     }
 
     private static List<List<int>> Parse(string[] inputLines)

@@ -9,7 +9,7 @@ public class Day05SecondTrySolution : PuzzleSolution
 {
     public override int DayNumber => 05;
 
-    public override string SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(in string[] inputLines)
     {
         var stacks = ToStacks(in inputLines, out var i);
 
@@ -32,7 +32,7 @@ public class Day05SecondTrySolution : PuzzleSolution
     }
 
 
-    public override string SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(in string[] inputLines)
     {
         var stacks = ToStacks(in inputLines, out var i);
 

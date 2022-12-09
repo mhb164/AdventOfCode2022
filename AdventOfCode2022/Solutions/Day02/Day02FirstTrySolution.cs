@@ -4,7 +4,7 @@
 public class Day02FirstTrySolution : PuzzleSolution
 {
     public override int DayNumber => 02;
-    public override string SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(in string[] inputLines)
     {
         var scores = 0;
         for (int i = 0; i < inputLines.Length; i++)
@@ -18,10 +18,10 @@ public class Day02FirstTrySolution : PuzzleSolution
             scores += myShapeOutcome + myRoundOutcome;
         }
 
-        return scores.ToString();
+        return scores;
     }
 
-    public override string SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(in string[] inputLines)
     {
         var scores = 0;
         for (int i = 0; i < inputLines.Length; i++)
@@ -55,7 +55,7 @@ public class Day02FirstTrySolution : PuzzleSolution
             scores += myShapeOutcome + myRoundOutcome;
         }
 
-        return scores.ToString();
+        return scores;
     }
 
     private int GetMyShapeOutcome(char choice)

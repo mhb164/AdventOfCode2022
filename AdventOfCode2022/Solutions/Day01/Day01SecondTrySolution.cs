@@ -25,23 +25,21 @@ public class Day01SecondTrySolution : PuzzleSolution
         }
     }
 
-    public override string SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(in string[] inputLines)
     {
         var Elves = CreateElves(in inputLines);
 
         return Elves.OrderByDescending(x => x.Calories)
-                    .First().Calories
-                    .ToString();
+                    .First().Calories;
     }
-    public override string SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(in string[] inputLines)
     {
         var Elves = CreateElves(in inputLines);
 
 
         return Elves.OrderByDescending(x => x.Calories)
                     .Take(3).
-                    Sum(x => x.Calories)
-                    .ToString();
+                    Sum(x => x.Calories);
     }
 
     private static List<Elf> CreateElves(in string[] inputLines)

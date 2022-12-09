@@ -10,23 +10,21 @@ public class Day07SecondTrySolution : PuzzleSolution
 {
     public override int DayNumber => 07;
 
-    public override string SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(in string[] inputLines)
     {
         var storage = Storage.ParseTerminalOutput(in inputLines);
         
         return storage.AllDirectories.Where(x => x.Size < 100_000)
-                                     .Sum(x => x.Size)
-                                     .ToString();
+                                     .Sum(x => x.Size);
     }
 
-    public override string SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(in string[] inputLines)
     {
         var storage = Storage.ParseTerminalOutput(inputLines);
 
         var needSpace = 30_000_000 - (70_000_000 - storage.Size);
         return storage.AllDirectories.Where(x => x.Size >= needSpace)
-                                     .Min(x => x.Size)
-                                     .ToString();
+                                     .Min(x => x.Size);
     }
 
 

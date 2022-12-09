@@ -9,17 +9,17 @@ public class Day09SecondTrySolution : PuzzleSolution
 {
     public override int DayNumber => 09;
 
-    public override string SolvePartOne(in string[] inputLines) => Solve(inputLines, 1);
-    public override string SolvePartTwo(in string[] inputLines) => Solve(inputLines, 9);
+    public override object SolvePartOne(in string[] inputLines) => Solve(inputLines, 1);
+    public override object SolvePartTwo(in string[] inputLines) => Solve(inputLines, 9);
 
-    private static string Solve(string[] inputLines, int _knotsCount)
+    private static object Solve(string[] inputLines, int _knotsCount)
     {
         var rope = new Rope(_knotsCount);
         foreach (var motion in inputLines.Select(line => Motion.Parse(line.AsSpan())))
         {
             rope.Do(motion);
         }
-        return rope.VisitedCount.ToString();
+        return rope.VisitedCount;
     }
 
     enum MotionDirection { Up = 'U', Right = 'R', Down = 'D', Left = 'L', }

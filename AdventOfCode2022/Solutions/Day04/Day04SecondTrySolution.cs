@@ -6,7 +6,7 @@ namespace AdventOfCode2022.Solutions;
 public class Day04SecondTrySolution : PuzzleSolution
 {
     public override int DayNumber => 04;
-    public override string SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(in string[] inputLines)
     {
         var pairs = 0;
         Parallel.ForEach(inputLines, inputLine =>
@@ -20,10 +20,10 @@ public class Day04SecondTrySolution : PuzzleSolution
             }
         });
 
-        return pairs.ToString();
+        return pairs;
     }
 
-    public override string SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(in string[] inputLines)
     {
         var pairs = 0;
         Parallel.ForEach(inputLines, inputLine =>
@@ -36,7 +36,7 @@ public class Day04SecondTrySolution : PuzzleSolution
             }
         });
 
-        return pairs.ToString();
+        return pairs;
     }
 
     private const char CammaChar = ',';

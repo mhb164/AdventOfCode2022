@@ -36,7 +36,7 @@ public class Day09FirstTrySolution : PuzzleSolution
         }
     }
 
-    public override string SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(in string[] inputLines)
     {
         var positions = new List<pos>();
         var H = new pos();
@@ -81,7 +81,7 @@ public class Day09FirstTrySolution : PuzzleSolution
                 }
             }
         }
-        return positions.Count.ToString();
+        return positions.Count;
     }
 
     private void Update1(pos h, pos t, List<pos> positions)
@@ -99,7 +99,7 @@ public class Day09FirstTrySolution : PuzzleSolution
         }
     }
     
-    public override string SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(in string[] inputLines)
     {
         var result = string.Empty;
 
@@ -150,7 +150,7 @@ public class Day09FirstTrySolution : PuzzleSolution
                 }
             }
         }
-        return positions.Count.ToString();
+        return positions.Count;
     }
 
     private void Update2(pos h, pos[] t, List<pos> positions)

@@ -4,7 +4,7 @@
 public class Day03FirstTrySolution : PuzzleSolution
 {
     public override int DayNumber => 03;
-    public override string SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(in string[] inputLines)
     {
         var sum = 0;
         for (int i = 0; i < inputLines.Length; i++)
@@ -32,10 +32,10 @@ public class Day03FirstTrySolution : PuzzleSolution
             }
 
         }
-        return sum.ToString();
+        return sum;
     }
 
-    public override string SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(in string[] inputLines)
     {
         var sum = 0;
         //foreach (var inputLine in inputLines)
@@ -65,7 +65,7 @@ public class Day03FirstTrySolution : PuzzleSolution
             }
 
         }
-        return sum.ToString();
+        return sum;
     }
 
 }

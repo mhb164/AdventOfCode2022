@@ -52,7 +52,7 @@ public class Day02SecondTrySolution : PuzzleSolution
         }
     }
 
-    public override string SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(in string[] inputLines)
     {
         var holder = new RockPaperScissors();
 
@@ -64,10 +64,10 @@ public class Day02SecondTrySolution : PuzzleSolution
             holder.AddRound(in opponentShape, in myShape);
         }
 
-        return holder.Score.ToString();
+        return holder.Score;
     }
 
-    public override string SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(in string[] inputLines)
     {
         var holder = new RockPaperScissors();
 
@@ -81,7 +81,7 @@ public class Day02SecondTrySolution : PuzzleSolution
             holder.AddRound(opponentShape, myShapeMustBe);
         }
 
-        return holder.Score.ToString();
+        return holder.Score;
     }
 
     private static HandShape ToShapePartOne(in string input, int index)

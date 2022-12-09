@@ -4,7 +4,7 @@
 public class Day04FirstTrySolution : PuzzleSolution
 {
     public override int DayNumber => 04;
-    public override string SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(in string[] inputLines)
     {
         var result = 0;
         //foreach (var inputLine in inputLines)
@@ -37,10 +37,10 @@ public class Day04FirstTrySolution : PuzzleSolution
             }
           
         }
-        return result.ToString();
+        return result;
     }
 
-    public override string SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(in string[] inputLines)
     {
         var result = 0;
 
@@ -73,7 +73,7 @@ public class Day04FirstTrySolution : PuzzleSolution
                 result++;
             }
         }
-        return result.ToString();
+        return result;
     }
 
 }

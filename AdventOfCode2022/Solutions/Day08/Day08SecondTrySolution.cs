@@ -8,14 +8,12 @@ namespace AdventOfCode2022.Solutions;
 public class Day08SecondTrySolution : PuzzleSolution
 {
     public override int DayNumber => 08;
-    public override string SolvePartOne(in string[] inputLines) => Jungle.Parse(inputLines)
+    public override object SolvePartOne(in string[] inputLines) => Jungle.Parse(inputLines)
                                                                          .Where(tree => tree.VisibleFromOut())
-                                                                         .Count()
-                                                                         .ToString();
+                                                                         .Count();
 
-    public override string SolvePartTwo(in string[] inputLines) => Jungle.Parse(inputLines)
-                                                                         .Max(tree => tree.GetScenicScore())
-                                                                         .ToString();
+    public override object SolvePartTwo(in string[] inputLines) => Jungle.Parse(inputLines)
+                                                                         .Max(tree => tree.GetScenicScore());
 
     class Jungle : IEnumerable<Tree>
     {
