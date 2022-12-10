@@ -130,7 +130,19 @@ This repository is a platform for solving [Advent Of Code 2022](https://adventof
 |  Part2 first try | 293,346.1 us | 500.0000 |       - |       - | 2884.73 KB |
 | Part2 second try |   1,250.7 us |  46.8750 |       - |       - |  198.26 KB |
 
-## [Day 10: Cathode-Ray Tube](https://adventofcode.com/2022/day/10) ([1 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day10))
+## [Day 10: Cathode-Ray Tube](https://adventofcode.com/2022/day/10) ([2 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day10))
+* First try worked :upside_down_face:. 
+* On the second try:
+  - The code refactored ([object-oriented](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/oop) .
+  - Puzzle language improved (Instruction, CPU, ProgramExecuter, CRT, etc).
+  - Benchmarks are good enough.
+
+|           Method |      Mean |    Gen0 | Allocated |
+|----------------- |----------:|--------:|----------:|
+|  Part1 first try | 21.279 us | 18.7988 |  76.78 KB |
+| Part1 second try |  9.362 us |  1.2817 |   5.24 KB |
+|  Part2 first try | 18.658 us | 18.6768 |  76.32 KB |
+| Part2 second try |  8.536 us |  1.5259 |   6.25 KB |
 
 ###### Day 11: comming soon...
 ###### Day 12: comming soon...

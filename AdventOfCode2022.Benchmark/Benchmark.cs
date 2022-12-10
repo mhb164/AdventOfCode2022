@@ -14,6 +14,7 @@ internal class Program
         //BenchmarkRunner.Run<Day06Benchmark>();
         //BenchmarkRunner.Run<Day07Benchmark>();
         //BenchmarkRunner.Run<Day08Benchmark>();
-        BenchmarkRunner.Run<Day09Benchmark>();
+        //BenchmarkRunner.Run<Day09Benchmark>();
+        BenchmarkRunner.Run<Day10Benchmark>();
     }
 }
