@@ -10,7 +10,7 @@ public class Day10SecondTrySolution : PuzzleSolution
 {
     public override int DayNumber => 10;
 
-    public override object SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(string[] lines)
     {
         var signalStrengths = new int[] { 20, 60, 100, 140, 180, 220 }.ToDictionary(x => x, y => 0);
         var afterCycleAction = (ProgramExecuter executer) =>
@@ -19,12 +19,12 @@ public class Day10SecondTrySolution : PuzzleSolution
             signalStrengths[executer.CycleCounter] = executer.SignalStrength;
         };
 
-        new ProgramExecuter(new CPU(), Instruction.Parse(inputLines)).Execute(null, afterCycleAction);
+        new ProgramExecuter(new CPU(), Instruction.Parse(lines)).Execute(null, afterCycleAction);
 
         return signalStrengths.Values.Sum();
     }
 
-    public override object SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(string[] lines)
     {
         var crt = new CRT();
         var beforeCycleAction = (ProgramExecuter executer) =>
@@ -32,7 +32,7 @@ public class Day10SecondTrySolution : PuzzleSolution
             crt.Draw(executer.CPU.SignalRegister);
         };
 
-        new ProgramExecuter(new CPU(), Instruction.Parse(inputLines)).Execute(beforeCycleAction, null);
+        new ProgramExecuter(new CPU(), Instruction.Parse(lines)).Execute(beforeCycleAction, null);
 
         return crt.Output;
     }

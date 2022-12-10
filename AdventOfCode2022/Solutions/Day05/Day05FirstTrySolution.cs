@@ -4,15 +4,15 @@
 public class Day05FirstTrySolution : PuzzleSolution
 {
     public override int DayNumber => 05;
-    public override object SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(string[] lines)
     {
         var stacks = new Dictionary<int, Stack<char>>();
         var i = 0;
-        for (i = 0; i < inputLines.Length; i++)
+        for (i = 0; i < lines.Length; i++)
         {
-            if (inputLines[i].StartsWith(" 1"))
+            if (lines[i].StartsWith(" 1"))
             {
-                var items = inputLines[i].Split("   ");
+                var items = lines[i].Split("   ");
                 foreach (var item in items)
                 {
                     stacks.Add(int.Parse(item), new Stack<char>());
@@ -25,7 +25,7 @@ public class Day05FirstTrySolution : PuzzleSolution
         {
             for (int k = 0; k < stacks.Count; k++)
             {
-                var xx = inputLines[j].Substring(k * 4, 3);
+                var xx = lines[j].Substring(k * 4, 3);
                 xx = xx.Replace("[", "").Replace("]", "").Trim();
                 if (xx.Length > 0)
                     stacks[k + 1].Push(xx[0]);
@@ -33,9 +33,9 @@ public class Day05FirstTrySolution : PuzzleSolution
         }
 
         i += 2;
-        for (; i < inputLines.Length; i++)
+        for (; i < lines.Length; i++)
         {
-            var line = inputLines[i].Replace("move ", "").Replace("from ", "").Replace("to ", "").Split(" ");
+            var line = lines[i].Replace("move ", "").Replace("from ", "").Replace("to ", "").Split(" ");
             var x1 = int.Parse(line[0]);
             var x2 = int.Parse(line[1]);
             var x3 = int.Parse(line[2]);
@@ -56,15 +56,15 @@ public class Day05FirstTrySolution : PuzzleSolution
     }
 
 
-    public override object SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(string[] lines)
     {
         var stacks = new Dictionary<int, Stack<char>>();
         var i = 0;
-        for (i = 0; i < inputLines.Length; i++)
+        for (i = 0; i < lines.Length; i++)
         {
-            if (inputLines[i].StartsWith(" 1"))
+            if (lines[i].StartsWith(" 1"))
             {
-                var items = inputLines[i].Split("   ");
+                var items = lines[i].Split("   ");
                 foreach (var item in items)
                 {
                     stacks.Add(int.Parse(item), new Stack<char>());
@@ -77,7 +77,7 @@ public class Day05FirstTrySolution : PuzzleSolution
         {
             for (int k = 0; k < stacks.Count; k++)
             {
-                var xx = inputLines[j].Substring(k * 4, 3);
+                var xx = lines[j].Substring(k * 4, 3);
                 xx = xx.Replace("[", "").Replace("]", "").Trim();
                 if (xx.Length > 0)
                     stacks[k + 1].Push(xx[0]);
@@ -85,9 +85,9 @@ public class Day05FirstTrySolution : PuzzleSolution
         }
 
         i += 2;
-        for (; i < inputLines.Length; i++)
+        for (; i < lines.Length; i++)
         {
-            var line = inputLines[i].Replace("move ", "").Replace("from ", "").Replace("to ", "").Split(" ");
+            var line = lines[i].Replace("move ", "").Replace("from ", "").Replace("to ", "").Split(" ");
             var x1 = int.Parse(line[0]);
             var x2 = int.Parse(line[1]);
             var x3 = int.Parse(line[2]);

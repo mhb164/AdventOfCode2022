@@ -37,24 +37,24 @@ public class Day07Benchmark
     [Benchmark(Description = "Day07 Part1 First")]
     public void PartOneFirstTry()
     {
-        _ = First.SolvePartOne(in ActualInput);
+        _ = First.SolvePartOne(ActualInput);
     }
 
     [Benchmark(Description = "Day07 Part1 Second")]
     public void PartOneSecondTry()
     {
-        _ = Second.SolvePartOne(in ActualInput);
+        _ = Second.SolvePartOne(ActualInput);
     }
 
     [Benchmark(Description = "Day07 Part2 First")]
     public void PartTwoFirstTry()
     {
-        _ = First.SolvePartTwo(in ActualInput);
+        _ = First.SolvePartTwo(ActualInput);
     }
 
     [Benchmark(Description = "Day07 Part2 Second")]
     public void PartTwoSecondTry()
     {
-        _ = Second.SolvePartTwo(in ActualInput);
+        _ = Second.SolvePartTwo(ActualInput);
     }
 }

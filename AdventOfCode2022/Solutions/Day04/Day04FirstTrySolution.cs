@@ -4,14 +4,13 @@
 public class Day04FirstTrySolution : PuzzleSolution
 {
     public override int DayNumber => 04;
-    public override object SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(string[] lines)
     {
         var result = 0;
-        //foreach (var inputLine in inputLines)
-        for (int i = 0; i < inputLines.Length; i++)
+        for (int i = 0; i < lines.Length; i++)
         {
-            var first = inputLines[i].Split(',')[0];
-            var second = inputLines[i].Split(',')[1];
+            var first = lines[i].Split(',')[0];
+            var second = lines[i].Split(',')[1];
 
             var first1 = int.Parse(first.Split('-')[0].ToString());
             var first2 = int.Parse(first.Split('-')[1].ToString());
@@ -40,15 +39,14 @@ public class Day04FirstTrySolution : PuzzleSolution
         return result;
     }
 
-    public override object SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(string[] lines)
     {
         var result = 0;
 
-        //foreach (var inputLine in inputLines)
-        for (int i = 0; i < inputLines.Length; i++)
+        for (int i = 0; i < lines.Length; i++)
         {
-            var first = inputLines[i].Split(',')[0];
-            var second = inputLines[i].Split(',')[1];
+            var first = lines[i].Split(',')[0];
+            var second = lines[i].Split(',')[1];
 
             var first1 = int.Parse(first.Split('-')[0].ToString());
             var first2 = int.Parse(first.Split('-')[1].ToString());

@@ -87,10 +87,10 @@ public class Day10FirstTrySolution : PuzzleSolution
             CRTPosition++;
         }
     }
-    public override object SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(string[] lines)
     {
         var result = string.Empty;
-        var set = inputLines.Select(x => Ins.Parse(x)).ToList();
+        var set = lines.Select(x => Ins.Parse(x)).ToList();
         var cpu = new Cpu(set);
 
         var targets = new List<int>() { 20, 60, 100, 140, 180, 220 };
@@ -106,10 +106,10 @@ public class Day10FirstTrySolution : PuzzleSolution
         return targetssignals.Sum(x => x.Item1);
     }
 
-    public override object SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(string[] lines)
     {
         var result = string.Empty;
-        var set = inputLines.Select(x => Ins.Parse(x)).ToList();
+        var set = lines.Select(x => Ins.Parse(x)).ToList();
         var cpu = new Cpu(set);
 
         while (cpu.DoCycle()) ;

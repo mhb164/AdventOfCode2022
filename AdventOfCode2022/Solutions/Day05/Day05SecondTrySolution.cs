@@ -9,13 +9,13 @@ public class Day05SecondTrySolution : PuzzleSolution
 {
     public override int DayNumber => 05;
 
-    public override object SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(string[] lines)
     {
-        var stacks = ToStacks(in inputLines, out var i);
+        var stacks = ToStacks(lines, out var i);
 
-        for (; i < inputLines.Length; i++)
+        for (; i < lines.Length; i++)
         {
-            var procedure = ToProcedure(inputLines[i].AsSpan());
+            var procedure = ToProcedure(lines[i].AsSpan());
 
             var fromStack = stacks[procedure.From - 1];
             var toStack = stacks[procedure.To - 1];
@@ -32,13 +32,13 @@ public class Day05SecondTrySolution : PuzzleSolution
     }
 
 
-    public override object SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(string[] lines)
     {
-        var stacks = ToStacks(in inputLines, out var i);
+        var stacks = ToStacks(lines, out var i);
 
-        for (; i < inputLines.Length; i++)
+        for (; i < lines.Length; i++)
         {
-            var procedure = ToProcedure(inputLines[i].AsSpan());
+            var procedure = ToProcedure(lines[i].AsSpan());
             var fromStack = stacks[procedure.From - 1];
             var toStack = stacks[procedure.To - 1];
 
@@ -60,31 +60,31 @@ public class Day05SecondTrySolution : PuzzleSolution
         return string.Join(null, cartsOnTop);
     }
 
-    private static (int From, int To, int Count) ToProcedure(ReadOnlySpan<char> inputLine)
+    private static (int From, int To, int Count) ToProcedure(ReadOnlySpan<char> line)
     {
-        var fromIndex = inputLine.IndexOf('f');// from
-        var toIndex = inputLine.IndexOf('t');// to
+        var fromIndex = line.IndexOf('f');// from
+        var toIndex = line.IndexOf('t');// to
 
-        return (From: int.Parse(inputLine[(fromIndex + 4)..toIndex]),
-                To: int.Parse(inputLine[(toIndex + 2)..]),
-                Count: int.Parse(inputLine[4..fromIndex]));
+        return (From: int.Parse(line[(fromIndex + 4)..toIndex]),
+                To: int.Parse(line[(toIndex + 2)..]),
+                Count: int.Parse(line[4..fromIndex]));
     }
 
-    private static Stack<char>[] ToStacks(in string[] inputLines, out int index)
+    private static Stack<char>[] ToStacks(string[] lines, out int index)
     {
         List<List<char>> list = new List<List<char>>();
 
-        for (index = 0; index < inputLines.Length; index++)
+        for (index = 0; index < lines.Length; index++)
         {
-            if (inputLines[index].StartsWith(" 1"))
+            if (lines[index].StartsWith(" 1"))
             {
                 break;
             }
 
-            var inputLine = inputLines[index].AsSpan();
-            for (int i = 0; (i * 4) < inputLine.Length; i++)
+            var line = lines[index].AsSpan();
+            for (int i = 0; (i * 4) < line.Length; i++)
             {
-                var caret = inputLine[(i * 4)..((i * 4) + 3)];
+                var caret = line[(i * 4)..((i * 4) + 3)];
                 if (list.Count <= i)
                 {
                     list.Add(new List<char>());

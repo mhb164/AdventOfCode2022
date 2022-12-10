@@ -39,36 +39,36 @@ public class Day05Benchmark
     [Benchmark(Description = "Day05 Part1 First")]
     public void PartOneFirstTry()
     {
-        _ = First.SolvePartOne(in ActualInput);
+        _ = First.SolvePartOne(ActualInput);
     }
 
     [Benchmark(Description = "Day05 Part1 Second")]
     public void PartOneSecondTry()
     {
-        _ = Second.SolvePartOne(in ActualInput);
+        _ = Second.SolvePartOne(ActualInput);
     }
 
     [Benchmark(Description = "Day05 Part1 Third")]
     public void PartOneThirdTry()
     {
-        _ = Third.SolvePartOne(in ActualInput);
+        _ = Third.SolvePartOne(ActualInput);
     }
 
     [Benchmark(Description = "Day05 Part2 First")]
     public void PartTwoFirstTry()
     {
-        _ = First.SolvePartTwo(in ActualInput);
+        _ = First.SolvePartTwo(ActualInput);
     }
 
     [Benchmark(Description = "Day05 Part2 Second")]
     public void PartTwoSecondTry()
     {
-        _ = Second.SolvePartTwo(in ActualInput);
+        _ = Second.SolvePartTwo(ActualInput);
     }
 
     [Benchmark(Description = "Day05 Part2 Third")]
     public void PartTwoThirdTry()
     {
-        _ = Third.SolvePartTwo(in ActualInput);
+        _ = Third.SolvePartTwo(ActualInput);
     }
 }

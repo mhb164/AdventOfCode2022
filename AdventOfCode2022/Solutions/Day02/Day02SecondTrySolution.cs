@@ -52,14 +52,14 @@ public class Day02SecondTrySolution : PuzzleSolution
         }
     }
 
-    public override object SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(string[] lines)
     {
         var holder = new RockPaperScissors();
 
-        foreach (var inputLine in inputLines)
+        foreach (var line in lines)
         {
-            var opponentShape = ToShapePartOne(in inputLine, 0);
-            var myShape = ToShapePartOne(in inputLine, 2);
+            var opponentShape = ToShapePartOne(in line, 0);
+            var myShape = ToShapePartOne(in line, 2);
 
             holder.AddRound(in opponentShape, in myShape);
         }
@@ -67,14 +67,14 @@ public class Day02SecondTrySolution : PuzzleSolution
         return holder.Score;
     }
 
-    public override object SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(string[] lines)
     {
         var holder = new RockPaperScissors();
 
-        foreach (var inputLine in inputLines)
+        foreach (var line in lines)
         {
-            var opponentShape = ToShapePartTwo(in inputLine, 0);
-            var myOutcomeMustBe = ToOutcomePartTwo(in inputLine, 2);
+            var opponentShape = ToShapePartTwo(in line, 0);
+            var myOutcomeMustBe = ToOutcomePartTwo(in line, 2);
 
             var myShapeMustBe = GetShapeLeadToSpecificOutcome(in opponentShape, in myOutcomeMustBe);
 

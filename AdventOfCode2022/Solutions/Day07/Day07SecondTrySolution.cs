@@ -10,17 +10,17 @@ public class Day07SecondTrySolution : PuzzleSolution
 {
     public override int DayNumber => 07;
 
-    public override object SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(string[] lines)
     {
-        var storage = Storage.ParseTerminalOutput(in inputLines);
+        var storage = Storage.ParseTerminalOutput(lines);
         
         return storage.AllDirectories.Where(x => x.Size < 100_000)
                                      .Sum(x => x.Size);
     }
 
-    public override object SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(string[] lines)
     {
-        var storage = Storage.ParseTerminalOutput(inputLines);
+        var storage = Storage.ParseTerminalOutput(lines);
 
         var needSpace = 30_000_000 - (70_000_000 - storage.Size);
         return storage.AllDirectories.Where(x => x.Size >= needSpace)
@@ -57,8 +57,8 @@ public class Day07SecondTrySolution : PuzzleSolution
             directory.AddFile(name, size);
         }
 
-        internal static Storage ParseTerminalOutput(in string[] inputLines)
-            => TerminalOutputParser.Parse(in inputLines);
+        internal static Storage ParseTerminalOutput(string[] lines)
+            => TerminalOutputParser.Parse(lines);
 
         internal class Directory
         {
@@ -139,49 +139,49 @@ public class Day07SecondTrySolution : PuzzleSolution
             private static readonly string DirectoryPrefix = "dir";
             private static readonly int DirectoryPrefixJumpCount = DirectoryPrefix.Length + 1;
 
-            public static Storage Parse(in string[] inputLines)
+            public static Storage Parse(string[] lines)
             {
                 var storage = new Storage();
 
                 var currecntDirectory = storage.Root;
-                foreach (var inputLineRaw in inputLines)
+                foreach (var lineRaw in lines)
                 {
-                    var inputLine = inputLineRaw.AsSpan();
+                    var line = lineRaw.AsSpan();
 
-                    if (inputLine.StartsWith(ListAll))
+                    if (line.StartsWith(ListAll))
                     {
                         continue;
                     }
 
-                    if (inputLine.StartsWith(ChangeToRootDirectory))
+                    if (line.StartsWith(ChangeToRootDirectory))
                     {
                         currecntDirectory = storage.Root;
                         continue;
                     }
 
-                    if (inputLine.StartsWith(ChangeToUpDirectory))
+                    if (line.StartsWith(ChangeToUpDirectory))
                     {
                         currecntDirectory = currecntDirectory?.Parent ?? storage.Root;
                         continue;
                     }
 
-                    if (inputLine.StartsWith(ChangeToDirectoryPrefix))//$ cd a
+                    if (line.StartsWith(ChangeToDirectoryPrefix))//$ cd a
                     {
-                        var directoryName = inputLine[ChangeToDirectoryPrefixJumpCount..].ToString();
+                        var directoryName = line[ChangeToDirectoryPrefixJumpCount..].ToString();
                         currecntDirectory = currecntDirectory.GetDirectory(directoryName) ?? currecntDirectory;
                         continue;
                     }
 
-                    if (inputLine.StartsWith(DirectoryPrefix))//dir e
+                    if (line.StartsWith(DirectoryPrefix))//dir e
                     {
-                        var directoryName = inputLine[DirectoryPrefixJumpCount..].ToString();
+                        var directoryName = line[DirectoryPrefixJumpCount..].ToString();
                         storage.AddDirectory(currecntDirectory, directoryName);
                         continue;
                     }
 
-                    var spaceIndex = inputLine.IndexOf(' ');
-                    var size = int.Parse(inputLine[..spaceIndex]);
-                    var fileName = inputLine[spaceIndex..].ToString();
+                    var spaceIndex = line.IndexOf(' ');
+                    var size = int.Parse(line[..spaceIndex]);
+                    var fileName = line[spaceIndex..].ToString();
                     storage.AddFile(currecntDirectory, fileName, size);
                     continue;
 

@@ -8,11 +8,11 @@ namespace AdventOfCode2022.Solutions;
 public class Day08SecondTrySolution : PuzzleSolution
 {
     public override int DayNumber => 08;
-    public override object SolvePartOne(in string[] inputLines) => Jungle.Parse(inputLines)
+    public override object SolvePartOne(string[] lines) => Jungle.Parse(lines)
                                                                          .Where(tree => tree.VisibleFromOut())
                                                                          .Count();
 
-    public override object SolvePartTwo(in string[] inputLines) => Jungle.Parse(inputLines)
+    public override object SolvePartTwo(string[] lines) => Jungle.Parse(lines)
                                                                          .Max(tree => tree.GetScenicScore());
 
     class Jungle : IEnumerable<Tree>
@@ -43,16 +43,16 @@ public class Day08SecondTrySolution : PuzzleSolution
             return _trees[rowIndex][columnIndex];
         }
 
-        public static Jungle Parse(string[] inputLines)
+        public static Jungle Parse(string[] lines)
         {
-            var trees = new Tree[inputLines.Length][];
+            var trees = new Tree[lines.Length][];
 
-            for (int row = 0; row < inputLines.Length; row++)
+            for (int row = 0; row < lines.Length; row++)
             {
-                trees[row] = new Tree[inputLines[row].Length];
-                for (int col = 0; col < inputLines[row].Length; col++)
+                trees[row] = new Tree[lines[row].Length];
+                for (int col = 0; col < lines[row].Length; col++)
                 {
-                    trees[row][col] = new Tree(row, col, inputLines[row][col] - '0');
+                    trees[row][col] = new Tree(row, col, lines[row][col] - '0');
                 }
             }
 

@@ -36,14 +36,14 @@ public class Day09FirstTrySolution : PuzzleSolution
         }
     }
 
-    public override object SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(string[] lines)
     {
         var positions = new List<pos>();
         var H = new pos();
         var T = new pos();
-        foreach (var inputLine in inputLines)
+        foreach (var line in lines)
         {
-            var splited = inputLine.Split(' ');
+            var splited = line.Split(' ');
             var dir = splited[0];
             var count = int.Parse(splited[1]);
             //--------------
@@ -99,7 +99,7 @@ public class Day09FirstTrySolution : PuzzleSolution
         }
     }
     
-    public override object SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(string[] lines)
     {
         var result = string.Empty;
 
@@ -110,9 +110,9 @@ public class Day09FirstTrySolution : PuzzleSolution
         {
             T[i] = new pos();
         }
-        foreach (var inputLine in inputLines)
+        foreach (var line in lines)
         {
-            var splited = inputLine.Split(' ');
+            var splited = line.Split(' ');
             var dir = splited[0];
             var count = int.Parse(splited[1]);
             //--------------

@@ -9,19 +9,19 @@ public class Day05ThirdTrySolution : PuzzleSolution
 {
     public override int DayNumber => 05;
 
-    public override object SolvePartOne(in string[] inputLines) => Solve<CrateMover9000>(inputLines);
+    public override object SolvePartOne(string[] lines) => Solve<CrateMover9000>(lines);
 
-    public override object SolvePartTwo(in string[] inputLines) => Solve<CrateMover9001>(inputLines);
+    public override object SolvePartTwo(string[] lines) => Solve<CrateMover9001>(lines);
 
-    private static object Solve<T>(in string[] inputLines)
+    private static object Solve<T>(string[] lines)
         where T : Crane
     {
         var crane = (Activator.CreateInstance(typeof(T)) as Crane)
-                    .Initial(in inputLines, out var i);
+                    .Initial(lines, out var i);
 
-        for (; i < inputLines.Length; i++)
+        for (; i < lines.Length; i++)
         {
-            crane.ReArrange(inputLines[i].AsSpan());
+            crane.ReArrange(lines[i].AsSpan());
         }
 
         return crane;
@@ -33,23 +33,23 @@ public class Day05ThirdTrySolution : PuzzleSolution
     {
         private readonly List<Stack<char>> _stacks = new();
 
-        public Crane Initial(in string[] inputLines, out int index) => Initial(this, in inputLines, out index);
+        public Crane Initial(string[] lines, out int index) => Initial(this, lines, out index);
 
-        private static Crane Initial(Crane crane, in string[] inputLines, out int index)
+        private static Crane Initial(Crane crane, string[] lines, out int index)
         {
             List<List<char>> list = new();
 
-            for (index = 0; index < inputLines.Length; index++)
+            for (index = 0; index < lines.Length; index++)
             {
-                if (inputLines[index].StartsWith(" 1"))
+                if (lines[index].StartsWith(" 1"))
                 {
                     break;
                 }
-
-                var inputLine = inputLines[index].AsSpan();
-                for (int i = 0; (i * 4) < inputLine.Length; i++)
+                 
+                var line = lines[index].AsSpan();
+                for (int i = 0; (i * 4) < line.Length; i++)
                 {
-                    var caret = inputLine[(i * 4)..((i * 4) + 3)];
+                    var caret = line[(i * 4)..((i * 4) + 3)];
                     if (list.Count <= i)
                     {
                         list.Add(new List<char>());
@@ -76,21 +76,21 @@ public class Day05ThirdTrySolution : PuzzleSolution
             return crane;
         }
 
-        private static (int From, int To, int Count) ToProcedure(ReadOnlySpan<char> inputLine)
+        private static (int From, int To, int Count) ToProcedure(ReadOnlySpan<char> line)
         {
-            var fromIndex = inputLine.IndexOf('f');// from
-            var toIndex = inputLine.IndexOf('t');// to
+            var fromIndex = line.IndexOf('f');// from
+            var toIndex = line.IndexOf('t');// to
 
-            return (From: int.Parse(inputLine[(fromIndex + 4)..toIndex]),
-                    To: int.Parse(inputLine[(toIndex + 2)..]),
-                    Count: int.Parse(inputLine[4..fromIndex]));
+            return (From: int.Parse(line[(fromIndex + 4)..toIndex]),
+                    To: int.Parse(line[(toIndex + 2)..]),
+                    Count: int.Parse(line[4..fromIndex]));
         }
 
         protected Stack<char> GetStack(int number) => _stacks[number - 1];
 
-        public void ReArrange(ReadOnlySpan<char> inputLine)
+        public void ReArrange(ReadOnlySpan<char> line)
         {
-            var procedure = ToProcedure(inputLine);
+            var procedure = ToProcedure(line);
             ReArrange(procedure.From, procedure.To, procedure.Count);
         }
 

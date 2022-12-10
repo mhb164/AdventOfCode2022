@@ -4,9 +4,9 @@
 public class Day08FirstTrySolution : PuzzleSolution
 {
     public override int DayNumber => 08;
-    public override object SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(string[] lines)
     {
-        var grid = Parse(inputLines);
+        var grid = Parse(lines);
 
         var visiables = new List<(int, int)>();
         
@@ -64,9 +64,9 @@ public class Day08FirstTrySolution : PuzzleSolution
         return visiables.Count;
     }
 
-    public override object SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(string[] lines)
     {
-        var grid = Parse(inputLines);
+        var grid = Parse(lines);
 
         var scores = new List<(int, int, int)>();
         for (int i = 1; i < grid.Count - 1; i++)
@@ -96,15 +96,15 @@ public class Day08FirstTrySolution : PuzzleSolution
         return scores.Max(x => x.Item3);
     }
 
-    private static List<List<int>> Parse(string[] inputLines)
+    private static List<List<int>> Parse(string[] lines)
     {
-        var grid = new List<List<int>>(inputLines.Length);
-        for (int i = 0; i < inputLines.Length; i++)
+        var grid = new List<List<int>>(lines.Length);
+        for (int i = 0; i < lines.Length; i++)
         {
-            grid.Add(new List<int>(inputLines[i].Length));
-            for (int j = 0; j < inputLines[i].Length; j++)
+            grid.Add(new List<int>(lines[i].Length));
+            for (int j = 0; j < lines[i].Length; j++)
             {
-                grid[i].Add(int.Parse(inputLines[i][j].ToString()));
+                grid[i].Add(int.Parse(lines[i][j].ToString()));
             }
         }
 

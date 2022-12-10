@@ -6,16 +6,16 @@ namespace AdventOfCode2022.Solutions;
 public class Day03SecondTrySolution : PuzzleSolution
 {
     public override int DayNumber => 03;
-    public override object SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(string[] lines)
     {
         var sum = 0;
-        for (int i = 0; i < inputLines.Length; i++)
+        for (int i = 0; i < lines.Length; i++)
         {
-            var inputLine = inputLines[i].AsSpan();
-            var middel = inputLine.Length / 2;
+            var line = lines[i].AsSpan();
+            var middel = line.Length / 2;
 
-            var first = inputLine[..middel];
-            var second = inputLine[middel..];
+            var first = line[..middel];
+            var second = line[middel..];
 
             var badge = ' ';
             foreach (var item in first)
@@ -30,14 +30,14 @@ public class Day03SecondTrySolution : PuzzleSolution
         return sum;
     }
 
-    public override object SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(string[] lines)
     {
         var sum = 0;
-        for (int i = 0; i < inputLines.Length / 3; i++)
+        for (int i = 0; i < lines.Length / 3; i++)
         {
-            var first = inputLines[i * 3 + 0];
-            var second = inputLines[i * 3 + 1];
-            var third = inputLines[i * 3 + 2];
+            var first = lines[i * 3 + 0];
+            var second = lines[i * 3 + 1];
+            var third = lines[i * 3 + 2];
 
             var badge = ' ';
             foreach (var item in first)

@@ -7,15 +7,15 @@ public class Day07FirstTrySolution : PuzzleSolution
 {
     public override int DayNumber => 07;
 
-    public override object SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(string[] lines)
     {
-        var storage = Parse(inputLines);
+        var storage = Parse(lines);
         return storage.all.Values.Where(x => x.Size < 100_000).Sum(x => x.Size);
     }
 
-    public override object SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(string[] lines)
     {
-        var storage = Parse(inputLines);
+        var storage = Parse(lines);
 
         var freeSpace = 70000000 - storage.root.Size;
         var needSpace = 30000000 - freeSpace;
@@ -73,7 +73,7 @@ public class Day07FirstTrySolution : PuzzleSolution
 
     }
 
-    private static (Directory root, Dictionary<string, Directory> all) Parse(string[] inputLines)
+    private static (Directory root, Dictionary<string, Directory> all) Parse(string[] lines)
     {
         var rootDirectory = new Directory("root");
         var allDirectories = new Dictionary<string, Directory>
@@ -82,25 +82,25 @@ public class Day07FirstTrySolution : PuzzleSolution
         };
 
         var currecntDirectory = rootDirectory;
-        foreach (var inputLine in inputLines)
+        foreach (var line in lines)
         {
-            if (inputLine.StartsWith("$"))
+            if (line.StartsWith("$"))
             {
-                if (inputLine.StartsWith("$ cd /"))
+                if (line.StartsWith("$ cd /"))
                 {
                     currecntDirectory = rootDirectory;
                 }
-                else if (inputLine.StartsWith("$ ls"))
+                else if (line.StartsWith("$ ls"))
                 {
                     continue;
                 }
-                else if (inputLine.StartsWith("$ cd .."))
+                else if (line.StartsWith("$ cd .."))
                 {
                     currecntDirectory = currecntDirectory?.Parent ?? rootDirectory;
                 }
-                else if (inputLine.StartsWith("$ cd"))
+                else if (line.StartsWith("$ cd"))
                 {
-                    var dirName = inputLine.Replace("$ cd", "").Trim();
+                    var dirName = line.Replace("$ cd", "").Trim();
                     var dir = currecntDirectory?.Directories.FirstOrDefault(d => d.Name == dirName);
                     if (dir != null) { currecntDirectory = dir; }
                     else
@@ -109,11 +109,11 @@ public class Day07FirstTrySolution : PuzzleSolution
                     }
                 }
             }
-            else if (inputLine.StartsWith("dir"))
+            else if (line.StartsWith("dir"))
             {
                 if (currecntDirectory != null)
                 {
-                    var dirName = inputLine.Replace("dir", "").Trim();
+                    var dirName = line.Replace("dir", "").Trim();
                     var existed = currecntDirectory.Directories.FirstOrDefault(x => x.Name == dirName);
                     if (existed == null)
                     {
@@ -125,7 +125,7 @@ public class Day07FirstTrySolution : PuzzleSolution
             }
             else
             {
-                var splitted = inputLine.Split(" ");
+                var splitted = line.Split(" ");
                 if (currecntDirectory != null && int.TryParse(splitted[0], out var size))
                 {
                     var filename = splitted[1];

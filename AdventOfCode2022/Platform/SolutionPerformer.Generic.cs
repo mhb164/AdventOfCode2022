@@ -12,8 +12,8 @@ namespace AdventOfCode2022
           where TPuzzle : Puzzle
           where TPuzzleSolution : PuzzleSolution
     {
-        public SolutionPerformer(ILogger logger)
-            : base(logger,
+        public SolutionPerformer(ISolutionPerformerPlatform platform)
+            : base(platform,
                   Activator.CreateInstance(typeof(TPuzzle)) as Puzzle,
                   Activator.CreateInstance(typeof(TPuzzleSolution)) as PuzzleSolution)
         {

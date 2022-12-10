@@ -3,17 +3,17 @@
 [PuzzleDayNumber(01)]
 public class Day01FirstTrySolution : PuzzleSolution
 {
-    public override int DayNumber => 01; 
-    public override object SolvePartOne(in string[] inputLines)
+    public override int DayNumber => 01;
+    public override object SolvePartOne(string[] lines)
     {
-        var ElvesCalories = CreateElvesCalories(in inputLines);
+        var ElvesCalories = CreateElvesCalories(lines);
 
         return ElvesCalories.Max();
     }
 
-    public override object SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(string[] lines)
     {
-        var ElvesCalories = CreateElvesCalories(in inputLines);
+        var ElvesCalories = CreateElvesCalories(lines);
 
         ElvesCalories.Sort();
 
@@ -22,24 +22,24 @@ public class Day01FirstTrySolution : PuzzleSolution
                 ElvesCalories[ElvesCalories.Count - 3]);
     }
 
-    private static List<long> CreateElvesCalories(in string[] inputLines)
+    private static List<long> CreateElvesCalories(string[] lines)
     {
         var ElvesCalories = new List<long> { 0 };
-        for (int i = 0; i < inputLines.Length; i++)
+        for (int i = 0; i < lines.Length; i++)
         {
-            if (string.IsNullOrWhiteSpace(inputLines[i]))
+            if (string.IsNullOrWhiteSpace(lines[i]))
             {
                 ElvesCalories.Add(0);
             }
             else
             {
-                if (long.TryParse(inputLines[i], out var calories))
+                if (long.TryParse(lines[i], out var calories))
                 {
                     ElvesCalories[ElvesCalories.Count - 1] += calories;
                 }
                 else
                 {
-                    throw new ArgumentException($"Line #{i} isn't integer!! ({inputLines[i]})");
+                    throw new ArgumentException($"Line #{i} isn't integer!! ({lines[i]})");
                 }
             }
         }

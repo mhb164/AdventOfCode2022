@@ -8,13 +8,19 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode2022
 {
+    public interface ISolutionPerformerPlatform
+    {
+        ILogger Logger { get; }
+        string[] GetActualInput(int dayNumber);
+
+    }
     public partial class SolutionPerformer
     {
-        private readonly ILogger _logger;
+        private readonly ISolutionPerformerPlatform _platform;
 
-        public SolutionPerformer(ILogger logger, Puzzle puzzle, PuzzleSolution solution)
+        public SolutionPerformer(ISolutionPerformerPlatform platform, Puzzle puzzle, PuzzleSolution solution)
         {
-            _logger = logger;
+            _platform = platform;
 
             Puzzle = puzzle;
             Solution = solution;
@@ -24,7 +30,7 @@ namespace AdventOfCode2022
                 throw new ArgumentException($"DayNumber of Puzzle and solution don't match!");
             }
 
-            ActualInput = File.ReadAllLines(@$"ActualInputs\Day{DayNumber:d2}.txt");
+            ActualInput = _platform.GetActualInput(DayNumber);
 
             SolutionName = Solution.GetType().Name
                                    .Replace($"Day{DayNumber:d2}", "")
@@ -33,6 +39,7 @@ namespace AdventOfCode2022
             LogPrefix = $"Day{DayNumber:d2} {SolutionName}";
         }
 
+        private ILogger Logger => _platform.Logger;
         public Puzzle Puzzle { get; private set; }
         public PuzzleSolution Solution { get; private set; }
 
@@ -49,10 +56,10 @@ namespace AdventOfCode2022
         public string LogPrefix { get; private set; }
 
 
-        public void LogInfo(string message) => _logger?.Info($"{message}");
-        public void LogNotice(string message) => _logger?.Notice($"{message}");
-        public void LogError(string message) => _logger?.Error($"{message}");
-        public void LogCritical(string message) => _logger?.Critical($"{message}");
+        public void LogInfo(string message) => Logger?.Info($"{message}");
+        public void LogNotice(string message) => Logger?.Notice($"{message}");
+        public void LogError(string message) => Logger?.Error($"{message}");
+        public void LogCritical(string message) => Logger?.Critical($"{message}");
         public void LogStartLine(string action) => LogInfo($"--- Day{DayNumber:d2}: {Title} - {SolutionName} ({action}) ---");
         public void LogEndLine() => LogInfo($" ");
 

@@ -6,11 +6,11 @@ namespace AdventOfCode2022.Solutions;
 public class Day06FirstTrySolution : PuzzleSolution
 {
     public override int DayNumber => 06;
-    public override object SolvePartOne(in string[] inputLines)
-        => ReportStartOfPacket(inputLines[0].AsSpan(), 4);
+    public override object SolvePartOne(string[] lines)
+        => ReportStartOfPacket(lines[0].AsSpan(), 4);
 
-    public override object SolvePartTwo(in string[] inputLines)
-        => ReportStartOfPacket(inputLines[0].AsSpan(), 14);
+    public override object SolvePartTwo(string[] lines)
+        => ReportStartOfPacket(lines[0].AsSpan(), 14);
 
     private static object ReportStartOfPacket(ReadOnlySpan<char> datastream, int length)
     {

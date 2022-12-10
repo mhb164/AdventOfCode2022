@@ -2,6 +2,7 @@
 using AdventOfCode2022.Solutions;
 using System;
 using System.Drawing;
+using System.Security.Cryptography;
 
 namespace AdventOfCode2022;
 
@@ -36,12 +37,11 @@ internal class Program
         //ConsoleSolutionPerformer.PerformDebug(25);
 
         var today = (DateTime.Now.Date - new DateTime(2022, 12, 1)).Days + 1;
-        //var today = 09; 
+        ///var today = 09; 
         ConsoleSolutionPerformer.PerformDebug(today);
 
         ////Perform until today
-        //for (int i = 1; i <= today; i++)
-        //    ConsoleSolutionPerformer.Perform(i);
+        //for (int i = 1; i <= today; i++) ConsoleSolutionPerformer.Perform(i);
 
         //Old code
         //ConsoleSolutionPerformer.Perform<Day01Puzzle, Day01FirstTrySolution>();
@@ -49,10 +49,25 @@ internal class Program
     }
 
 
-    public class ConsoleSolutionPerformer : ILogger
+    public class ConsoleSolutionPerformer : ISolutionPerformerPlatform, ILogger
     {
 
         static readonly ConsoleSolutionPerformer _instance = new();
+        static readonly string _configFilepath = "C:\\AdventOnCode2022.cfg";
+        static readonly string _rootDirectory;
+
+        private static string ActualInputsDirectory => Path.Combine(_rootDirectory, "ActualInputs");
+
+        static ConsoleSolutionPerformer()
+        {
+            if (File.Exists(_configFilepath))
+                _rootDirectory = File.ReadAllText(_configFilepath);
+            if (string.IsNullOrWhiteSpace(_rootDirectory) || !Directory.Exists(_rootDirectory))
+            {
+                throw new FileNotFoundException("Config file (c:\\AdventOnCode2022.cfg)");
+            }
+        }
+
         public ConsoleSolutionPerformer()
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
@@ -114,8 +129,11 @@ internal class Program
         void ILogger.Info(string message) => Log(message, ConsoleColor.Cyan);
         void ILogger.Debug(string message) => Log(message, ConsoleColor.Gray);
 
+        ILogger ISolutionPerformerPlatform.Logger => this;
 
-
-
+        string[] ISolutionPerformerPlatform.GetActualInput(int dayNumber)
+        {
+            return File.ReadAllLines(Path.Combine(ActualInputsDirectory, $"Day{dayNumber:d2}.txt"));
+        }
     }
 }

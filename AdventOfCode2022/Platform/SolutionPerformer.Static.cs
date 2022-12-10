@@ -10,23 +10,23 @@ namespace AdventOfCode2022
 {
     public partial class SolutionPerformer
     {
-        public static void Perform(ILogger logger, int dayNumber, Action<SolutionPerformer> action)
-            => Perform(typeof(Puzzle).Assembly, logger, dayNumber, action);
+        public static void Perform(ISolutionPerformerPlatform platform, int dayNumber, Action<SolutionPerformer> action)
+            => Perform(typeof(Puzzle).Assembly, platform, dayNumber, action);
 
-        public static void Perform(Assembly assembly, ILogger logger, int dayNumber, Action<SolutionPerformer> action)
+        public static void Perform(Assembly assembly, ISolutionPerformerPlatform platform, int dayNumber, Action<SolutionPerformer> action)
         {
             var puzzleType = GetDayPuzzleType(assembly, dayNumber);
             var puzzleSolutionsTypes = GetDayPuzzleSolutionsTypes(assembly, dayNumber);
 
             if (puzzleType == null)
             {
-                logger?.Error($"Day{dayNumber:d2} puzzle not found!");
+                platform?.Logger?.Error($"Day{dayNumber:d2} puzzle not found!");
                 return;
             }
 
             if (puzzleSolutionsTypes.Count == 0)
             {
-                logger?.Error($"Day{dayNumber:d2} solution not found!");
+                platform?.Logger?.Error($"Day{dayNumber:d2} solution not found!");
                 return;
             }
 
@@ -34,7 +34,7 @@ namespace AdventOfCode2022
             {
                 var puzzle = Activator.CreateInstance(puzzleType) as Puzzle;
                 var solution = Activator.CreateInstance(puzzleSolutionType) as PuzzleSolution;
-                var performer = new SolutionPerformer(logger, puzzle, solution);
+                var performer = new SolutionPerformer(platform, puzzle, solution);
                 action?.Invoke(performer);
             }
         }
@@ -52,11 +52,11 @@ namespace AdventOfCode2022
                       .Select(x => x.type);
 
 
-        public static void Perform<TPuzzle, TPuzzleSolution>(ILogger logger, Action<SolutionPerformer> action)
+        public static void Perform<TPuzzle, TPuzzleSolution>(ISolutionPerformerPlatform platform, Action<SolutionPerformer> action)
               where TPuzzle : Puzzle
             where TPuzzleSolution : PuzzleSolution
         {
-            action?.Invoke(new SolutionPerformer<TPuzzle, TPuzzleSolution>(logger));
+            action?.Invoke(new SolutionPerformer<TPuzzle, TPuzzleSolution>(platform));
         }
     }
 }

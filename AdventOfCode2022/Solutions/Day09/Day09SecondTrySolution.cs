@@ -9,13 +9,13 @@ public class Day09SecondTrySolution : PuzzleSolution
 {
     public override int DayNumber => 09;
 
-    public override object SolvePartOne(in string[] inputLines) => Solve(inputLines, 1);
-    public override object SolvePartTwo(in string[] inputLines) => Solve(inputLines, 9);
+    public override object SolvePartOne(string[] lines) => Solve(lines, 1);
+    public override object SolvePartTwo(string[] lines) => Solve(lines, 9);
 
-    private static object Solve(string[] inputLines, int _knotsCount)
+    private static object Solve(string[] lines, int _knotsCount)
     {
         var rope = new Rope(_knotsCount);
-        foreach (var motion in inputLines.Select(line => Motion.Parse(line.AsSpan())))
+        foreach (var motion in lines.Select(line => Motion.Parse(line.AsSpan())))
         {
             rope.Do(motion);
         }

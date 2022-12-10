@@ -4,13 +4,13 @@
 public class Day02FirstTrySolution : PuzzleSolution
 {
     public override int DayNumber => 02;
-    public override object SolvePartOne(in string[] inputLines)
+    public override object SolvePartOne(string[] lines)
     {
         var scores = 0;
-        for (int i = 0; i < inputLines.Length; i++)
+        for (int i = 0; i < lines.Length; i++)
         {
-            var opponentChoice = inputLines[i][0];
-            var myChoice = inputLines[i][2];
+            var opponentChoice = lines[i][0];
+            var myChoice = lines[i][2];
 
             var myShapeOutcome = GetMyShapeOutcome(myChoice);
             var myRoundOutcome = GetMyRoundOutcome(opponentChoice, myChoice);
@@ -21,13 +21,13 @@ public class Day02FirstTrySolution : PuzzleSolution
         return scores;
     }
 
-    public override object SolvePartTwo(in string[] inputLines)
+    public override object SolvePartTwo(string[] lines)
     {
         var scores = 0;
-        for (int i = 0; i < inputLines.Length; i++)
+        for (int i = 0; i < lines.Length; i++)
         {
-            var opponentChoice = inputLines[i][0];
-            var resultMustBe = inputLines[i][2];
+            var opponentChoice = lines[i][0];
+            var resultMustBe = lines[i][2];
 
             var myChoice = '?';
             if (resultMustBe == 'X')//lose
