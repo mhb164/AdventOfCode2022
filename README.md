@@ -130,7 +130,7 @@ This repository is a platform for solving [Advent Of Code 2022](https://adventof
 |  Part2 first try | 293,346.1 us | 500.0000 |       - |       - | 2884.73 KB |
 | Part2 second try |   1,250.7 us |  46.8750 |       - |       - |  198.26 KB |
 
-## [Day 10: Rope Bridge](https://adventofcode.com/2022/day/10) ([1 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day10))
+## [Day 10: Cathode-Ray Tube](https://adventofcode.com/2022/day/10) ([1 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day10))
 
 ###### Day 11: comming soon...
 ###### Day 12: comming soon...
