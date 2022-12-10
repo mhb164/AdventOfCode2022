@@ -17,8 +17,8 @@ public class Day10Puzzle : Puzzle
         .ToLines();
 
     public override string PartOneSampleAnswer => "13140";
-    public override string PartTwoSampleAnswer => "";
+    public override string PartTwoSampleAnswer => "\r\n##..##..##..##..##..##..##..##..##..##..\r\n###...###...###...###...###...###...###.\r\n####....####....####....####....####....\r\n#####.....#####.....#####.....#####.....\r\n######......######......######......####\r\n#######.......#######.......#######.....\r\n";
 
     public override string PartOneActualAnswer => "12460";
-    public override string PartTwoActualAnswer => "EZFPRAKL";
+    public override string PartTwoActualAnswer => "\r\n####.####.####.###..###...##..#..#.#....\r\n#.......#.#....#..#.#..#.#..#.#.#..#....\r\n###....#..###..#..#.#..#.#..#.##...#....\r\n#.....#...#....###..###..####.#.#..#....\r\n#....#....#....#....#.#..#..#.#.#..#....\r\n####.####.#....#....#..#.#..#.#..#.####.\r\n";//"EZFPRAKL";
 }

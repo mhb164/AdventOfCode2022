@@ -29,7 +29,8 @@ public class Day10FirstTrySolution : PuzzleSolution
         public int Cycle { get; private set; } = 1;
         public readonly List<Ins> InsSet;
         int insIndex = 0;
-        public string output = "";
+        public string output = "\r\n";
+        int CRTPosition = 0;
 
         public Cpu(List<Ins> insSet)
         {
@@ -73,13 +74,17 @@ public class Day10FirstTrySolution : PuzzleSolution
         }
 
         private void DrawOnCRT()
-        {            
-            var p = output.Length % 40;
-            var dd = X - p+1;
-            if (dd == 0 || dd ==1 || dd == 2)
+        {
+            var p = CRTPosition % 40;
+            var dd = X - p + 1;
+            if (dd == 0 || dd == 1 || dd == 2)
                 output += "#";
             else
                 output += ".";
+            if (CRTPosition % 40 == 39)
+                output += "\r\n";
+
+            CRTPosition++;
         }
     }
     public override object SolvePartOne(in string[] inputLines)
@@ -107,19 +112,9 @@ public class Day10FirstTrySolution : PuzzleSolution
         var set = inputLines.Select(x => Ins.Parse(x)).ToList();
         var cpu = new Cpu(set);
 
-        while (cpu.DoCycle())
-        {
-        }
+        while (cpu.DoCycle()) ;
 
-        Console.WriteLine(cpu.output.Length);
-        Console.WriteLine(cpu.output[00..39]);
-        Console.WriteLine(cpu.output[40..79]);
-        Console.WriteLine(cpu.output[80..119]);
-        Console.WriteLine(cpu.output[120..159]);
-        Console.WriteLine(cpu.output[160..199]);
-        Console.WriteLine(cpu.output[200..239]);
-
-        return result;
+        return cpu.output;
     }
 
 }

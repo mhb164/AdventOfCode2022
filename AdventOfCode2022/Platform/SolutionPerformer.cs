@@ -61,7 +61,7 @@ namespace AdventOfCode2022
             LogStartLine("Sample Test");
             try
             {
-                var answer = Solution.SolvePartOne(SampleInput).ToString().Trim();
+                var answer = Solution.SolvePartOne(SampleInput).ToString();
 
                 if (answer == PartOneSampleAnswer)
                 {
@@ -85,7 +85,7 @@ namespace AdventOfCode2022
 
             try
             {
-                var answer = Solution.SolvePartTwo(SampleInput).ToString().Trim();
+                var answer = Solution.SolvePartTwo(SampleInput).ToString();
 
                 if (answer == PartTwoSampleAnswer)
                 {
@@ -114,7 +114,7 @@ namespace AdventOfCode2022
             LogStartLine("Actual Test");
             try
             {
-                var answer = Solution.SolvePartOne(ActualInput).ToString().Trim();
+                var answer = Solution.SolvePartOne(ActualInput).ToString();
 
                 if (answer == PartOneActualAnswer)
                 {
@@ -138,7 +138,7 @@ namespace AdventOfCode2022
 
             try
             {
-                var answer = Solution.SolvePartTwo(ActualInput).ToString().Trim();
+                var answer = Solution.SolvePartTwo(ActualInput).ToString();
 
                 if (answer == PartTwoActualAnswer)
                 {
