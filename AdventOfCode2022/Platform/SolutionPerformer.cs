@@ -68,7 +68,7 @@ namespace AdventOfCode2022
             LogStartLine("Sample Test");
             try
             {
-                var answer = Solution.SolvePartOne(SampleInput).ToString();
+                var answer = Solution.SolvePartOne(SampleInput)?.ToString();
 
                 if (answer == PartOneSampleAnswer)
                 {
@@ -92,7 +92,7 @@ namespace AdventOfCode2022
 
             try
             {
-                var answer = Solution.SolvePartTwo(SampleInput).ToString();
+                var answer = Solution.SolvePartTwo(SampleInput)?.ToString();
 
                 if (answer == PartTwoSampleAnswer)
                 {
@@ -121,7 +121,7 @@ namespace AdventOfCode2022
             LogStartLine("Actual Test");
             try
             {
-                var answer = Solution.SolvePartOne(ActualInput).ToString();
+                var answer = Solution.SolvePartOne(ActualInput)?.ToString();
 
                 if (answer == PartOneActualAnswer)
                 {
@@ -145,7 +145,7 @@ namespace AdventOfCode2022
 
             try
             {
-                var answer = Solution.SolvePartTwo(ActualInput).ToString();
+                var answer = Solution.SolvePartTwo(ActualInput)?.ToString();
 
                 if (answer == PartTwoActualAnswer)
                 {
@@ -175,7 +175,7 @@ namespace AdventOfCode2022
             var partOneAnswer = default(string);
             try
             {
-                partOneAnswer = Solution.SolvePartOne(ActualInput).ToString();
+                partOneAnswer = Solution.SolvePartOne(ActualInput)?.ToString();
                 LogInfo($"☕ Part one answer by actual input: {partOneAnswer}.");
             }
             catch (Exception ex)
@@ -193,7 +193,7 @@ namespace AdventOfCode2022
             var partTwoAnswer = default(string);
             try
             {
-                partTwoAnswer = Solution.SolvePartTwo(ActualInput).ToString();
+                partTwoAnswer = Solution.SolvePartTwo(ActualInput)?.ToString();
                 LogInfo($"☕ Part two answer by actual input: {partTwoAnswer}.");
             }
             catch (Exception ex)
