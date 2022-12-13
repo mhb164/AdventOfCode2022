@@ -38,7 +38,7 @@ public class Day13FirstTrySolution : PuzzleSolution
             One = Correct(one);
             Two = Correct(two);
 
-            Console.WriteLine($"");
+            //Console.WriteLine($"");
             // Console.WriteLine($"******************************");
             //Console.WriteLine($"{one}   ----------   {two}");
             //Console.WriteLine($"{One}   ----------   {Two}");

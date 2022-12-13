@@ -84,7 +84,7 @@ internal class Program
         public static void ConsoleDebugAction(SolutionPerformer performer)
         {
             performer.SampleTest(true);
-            //performer.ActualTest(true);
+            performer.ActualTest(true);
 
             performer.Solve(true);
         }
