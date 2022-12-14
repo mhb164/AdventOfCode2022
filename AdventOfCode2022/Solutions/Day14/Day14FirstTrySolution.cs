@@ -61,23 +61,14 @@ public class Day14FirstTrySolution : PuzzleSolution
             }
         }
 
-        internal bool MoveDown(CavePoint sand, bool part2 = false)
+        internal bool MoveDown(CavePoint sand, Func<CavePoint, bool> stopAction)
         {
-            if (part2)
-            {
-                if (sand.Y + 1 >= Floor) return false;
-            }
-            else
-            {
-                if (sand.Y + 1 > MaxY) return false;
-            }
-
+            if (stopAction.Invoke(sand)) return false;
             if (Move(sand, sand.X, sand.Y + 1)) return true; //down
             if (Move(sand, sand.X - 1, sand.Y + 1)) return true; //down-left
             if (Move(sand, sand.X + 1, sand.Y + 1)) return true; //down-right
             return false;
         }
-
 
         private bool Move(CavePoint sand, int x, int y)
         {
@@ -121,23 +112,41 @@ public class Day14FirstTrySolution : PuzzleSolution
         {
             conter++;
             var sand = cave.AddClosedPoint(500, 0, 'o');
-            while (cave.MoveDown(sand))
+            while (cave.MoveDown(sand, (CavePoint sand) => sand.Y + 1 > cave.MaxY))
             {
-                //Console.WriteLine(sand.ToString());
-
-                //if (cave.MaxY < sand.Y)
-                //{
-                //    break;
-                //}
+                //Console.WriteLine(sand.ToString());   
             }
 
-            if (cave.MaxY <= sand.Y)
+            if (cave.MaxY < sand.Y)
             {
                 break;
             }
         }
 
         return conter - 1;
+    }
+
+    public override object SolvePartTwo(string[] lines)
+    {
+        var cave = ParseCave(lines);
+        var conter = 0;
+        while (true)
+        {
+            conter++;
+            var sand = cave.AddClosedPoint(500, 0, 'o');
+            while (cave.MoveDown(sand, (CavePoint sand) => sand.Y + 1 >= cave.Floor))
+            {
+                //Console.WriteLine(sand.ToString());   
+            }
+
+
+            if (sand.X == 500 && sand.Y == 0)
+            {
+                break;
+            }
+        }
+
+        return conter;
     }
 
     private static Cave ParseCave(string[] lines)
@@ -176,27 +185,4 @@ public class Day14FirstTrySolution : PuzzleSolution
         }
         return cave;
     }
-
-    public override object SolvePartTwo(string[] lines)
-    {
-        var cave = ParseCave(lines);
-        var conter = 0;
-        while (true)
-        {
-            conter++;
-            var sand = cave.AddClosedPoint(500, 0, 'o');
-            while (cave.MoveDown(sand, true))
-            {
-                //Console.WriteLine(sand.ToString());               
-            }
-
-            if (sand.X == 500 && sand.Y == 0)
-            {
-                break;
-            }
-        }
-
-        return conter;
-    }
-
 }
