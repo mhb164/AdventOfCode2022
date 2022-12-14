@@ -144,17 +144,18 @@ This repository is a platform for solving [Advent Of Code 2022](https://adventof
 |  Part2 first try | 18.658 us | 18.6768 |  76.32 KB |
 | Part2 second try |  8.536 us |  1.5259 |   6.25 KB |
 
-## [Day 11: Monkey in the Middle](https://adventofcode.com/2022/day/11) ([1 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day11))
+## [Day 11: Monkey in the Middle](https://adventofcode.com/2022/day/11) ([1 solution](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day11))
 * First try worked, such an amazing problem! 
 
-## [Day 12: Hill Climbing Algorithm](https://adventofcode.com/2022/day/12) ([1 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day12))
+## [Day 12: Hill Climbing Algorithm](https://adventofcode.com/2022/day/12) ([1 solution](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day12))
 * First try worked, good modeling and BFS!
 
-## [Day 13: Distress Signal](https://adventofcode.com/2022/day/13) ([1 solutions](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day13))
-* First try worked, parser (from scratch)
+## [Day 13: Distress Signal](https://adventofcode.com/2022/day/13) ([1 solution](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day13))
+* First try worked, parser (from scratch for fun)
 
-###### Day 13: comming soon...
-###### Day 14: comming soon...
+## [Day 14: Regolith Reservoirl](https://adventofcode.com/2022/day/14) ([1 solution](https://github.com/mhb164/AdventOfCode2022/tree/main/AdventOfCode2022/Solutions/Day14))
+* First try worked, I love [object-oriented](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/tutorials/oop) :heartbeat:
+
 ###### Day 15: comming soon...
 ###### Day 16: comming soon...
 ###### Day 17: comming soon...
